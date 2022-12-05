@@ -3,8 +3,8 @@
  @media (min-width:390px) {
    body{
     font-family: 'Poppins', sans-serif;
-    height: 844px;
-    width: 390px;
+    max-height: 844px;
+    max-width: 390px;
     
    }
 
@@ -19,7 +19,6 @@
      align-items: center;
      height: 100%;
      width: auto;
-    
    }
 
    .nav-first-row {
@@ -636,8 +635,7 @@
   }
 
   progress{
-    width: 100px;
-    
+    width: 100px; 
   }
   
   li{
