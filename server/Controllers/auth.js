@@ -3,7 +3,7 @@ const router=express.Router();
 const bcrypt=require('bcrypt');
 const db = require('../models/');
 const jwt=require('jsonwebtoken')
-const {verifyToken,TOKEN_SECRET}=require('../middlewares/validate-jwt');
+const {verifyToken,TOKEN_SECRET}=require('../middlewares/validate-jwt.js');
 
 
 router.post('/register',async (req,res)=>{
