@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/index')
 
-router.get('/products',(req,res) => { //busco todos los productos
+/*router.get('/products',(req,res) => { //busco todos los productos
     const Products = db.Products
     Products.findAll()
     .then(data => {res.send(data)})
     .catch(err => {res.status(500).send({message: err.message})})
-})
+})*/
 
 
 /*router.get('/products/:id', (req, res) => {  //busco un producto especifico por si id
