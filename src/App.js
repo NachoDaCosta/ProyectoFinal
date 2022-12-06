@@ -29,8 +29,13 @@ function App() {
       console.log(data)
        if(data.error===null){
       logueo()
+      auth_redirect()
     }
     })
+  }
+
+   function auth_redirect(){
+    window.location.replace("/home");
   }
 
   const logueo=()=>{

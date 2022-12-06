@@ -656,16 +656,25 @@
     --bs-progress-height: 0.5rem;
   }
 
+  .register-text{
+    color: black;
+
+  }
   .login{
+    color: black;
     height: 100vh;
-    background: rgb(255, 255, 255);
-      background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(107, 133, 167, 1) 0%, rgba(0, 255, 205, 1) 100%);
+    background-image: url(https://www.teahub.io/photos/full/341-3415520_download-pokemon-iphone-backgrounds-wallpaper-hd-cute-wallpaper.jpg//wallpapercave.com/wp/wp7416886.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     display: grid;
     align-content: center;
     justify-items: center;
+    font-weight: bolder;
   }
 
   .datos{
+    color: black;
+    font-weight: bold;
     display: grid;grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     justify-content: center;
@@ -673,7 +682,6 @@
   }
 
   .submit{
-    background-color: green;
     width: 100px;
   }
 
