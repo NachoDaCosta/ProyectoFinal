@@ -655,6 +655,34 @@
   .bar{
     --bs-progress-height: 0.5rem;
   }
+
+  .login{
+    height: 100vh;
+    background: rgb(255, 255, 255);
+      background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(107, 133, 167, 1) 0%, rgba(0, 255, 205, 1) 100%);
+    display: grid;
+    align-content: center;
+    justify-items: center;
+  }
+
+  .datos{
+    display: grid;grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .submit{
+    background-color: green;
+    width: 100px;
+  }
+
+  .enviar{
+    display: grid;
+    justify-content: center;
+  }
+  
+
 } 
 
 

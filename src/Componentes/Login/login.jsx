@@ -20,7 +20,7 @@ export const Login=(props)=>{
                             
                         </div>
                         <div className="enviar">
-                            <input type="button" value="Submit" onClick={props.Login}/>
+                            <input className='submit' type="button" value="Submit" onClick={props.Login}/>
                         </div>
                     </div>
 

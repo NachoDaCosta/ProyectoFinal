@@ -53,9 +53,9 @@ const getpokemons = () => {
       })
   } 
    useEffect(() => {
-    if(!isLoggedIn){
+    if(isLoggedIn===false){
       redirect("/login")
-      console.log("")
+      console.log(isLoggedIn)
     }
     else{
       getpokemons()
