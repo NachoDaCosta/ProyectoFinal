@@ -31,21 +31,26 @@ function App() {
       console.log(data)
        if(data.error===null){
       logueo()
+<<<<<<< HEAD
       auth_redirect()
       
+=======
+>>>>>>> 02f0afa5cfad7ca17a9520d0945ee613f82d1ee2
     }
     })
   }
 
+<<<<<<< HEAD
   function auth_redirect(){
     window.location.replace("/home");
 
   } 
 
+=======
+>>>>>>> 02f0afa5cfad7ca17a9520d0945ee613f82d1ee2
   const logueo=()=>{
     setIsLoggedIn(true)
   }
-
 
 const getpokemons = () => {
     fetch('http://localhost:8080/pokemons')
@@ -55,10 +60,14 @@ const getpokemons = () => {
         console.log(data)
       })
   } 
+
    useEffect(() => {
     if(isLoggedIn===false){
       redirect("/login")
+<<<<<<< HEAD
       
+=======
+>>>>>>> 02f0afa5cfad7ca17a9520d0945ee613f82d1ee2
     }
     else{
       getpokemons()
