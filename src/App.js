@@ -29,20 +29,13 @@ function App() {
       console.log(data)
        if(data.error===null){
       logueo()
-      
     }
     })
   }
 
-  function printState(){
-    console.log(!isLoggedIn)
-  }
-
-
   const logueo=()=>{
     setIsLoggedIn(true)
   }
-
 
 const getpokemons = () => {
     fetch('http://localhost:8080/pokemons')
@@ -52,10 +45,10 @@ const getpokemons = () => {
         console.log(data)
       })
   } 
+
    useEffect(() => {
     if(isLoggedIn===false){
       redirect("/login")
-      console.log(isLoggedIn)
     }
     else{
       getpokemons()

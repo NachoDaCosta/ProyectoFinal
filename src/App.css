@@ -681,7 +681,10 @@
     display: grid;
     justify-content: center;
   }
-  
+  .centrar{
+    display: grid;
+    justify-content: center;
+  }
 
 } 
 
