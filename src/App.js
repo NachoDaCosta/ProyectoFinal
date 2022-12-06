@@ -14,6 +14,8 @@ function App() {
   const [user, setUser] = useState([])
  const [isLoggedIn, setIsLoggedIn] = useState(false);
  const [pokemons,setPokemons]=useState([])
+ 
+
 
 
  const loginUser = () => {
@@ -29,15 +31,16 @@ function App() {
       console.log(data)
        if(data.error===null){
       logueo()
+      auth_redirect()
       
     }
     })
   }
 
-  function printState(){
-    console.log(!isLoggedIn)
-  }
+  function auth_redirect(){
+    window.location.replace("/home");
 
+  } 
 
   const logueo=()=>{
     setIsLoggedIn(true)
@@ -55,7 +58,7 @@ const getpokemons = () => {
    useEffect(() => {
     if(isLoggedIn===false){
       redirect("/login")
-      console.log(isLoggedIn)
+      
     }
     else{
       getpokemons()
@@ -64,12 +67,17 @@ const getpokemons = () => {
 
   }, []) 
 
+
+  
+
+
+
   return (
      
   <BrowserRouter>
     <Routes>
-      <Route path="/home" element={<Home />}/>
-      <Route path="/login" element={<Login Login={loginUser}/>}/>
+      <Route path="/home" element={<Home/>}/>
+      <Route path="/" element={<Login Login={loginUser}/>}/>
       
     </Routes>
   </BrowserRouter>
