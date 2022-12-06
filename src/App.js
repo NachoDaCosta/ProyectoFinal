@@ -1,22 +1,76 @@
 
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route, redirect} from 'react-router-dom';
 import Home from './Componentes/home';
 import Modal from './Componentes/Modal/modal';
 import { useState, useEffect } from 'react';
-import Data from "./Pokeinfo.json"
-const info=Data
+import { Login } from './Componentes/Login/login';
+
+
 
 function App() {
 
-  const [list, SetList] = useState(Data.pokemones); 
+  //const [list, SetList] = useState(Data.pokemones);
+  const [user, setUser] = useState([])
+ const [isLoggedIn, setIsLoggedIn] = useState(false);
+ const [pokemons,setPokemons]=useState([])
+
+
+ const loginUser = () => {
+    const requestOption = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({ email: document.getElementById('email').value, password: document.getElementById('password').value })
+    }
+    fetch('http://localhost:8080/auth/login', requestOption)
+    .then(response => response.json())
+    .then(data => {
+      setUser(data)
+      console.log(data)
+       if(data.error===null){
+      logueo()
+      
+    }
+    })
+  }
+
+  function printState(){
+    console.log(!isLoggedIn)
+  }
+
+
+  const logueo=()=>{
+    setIsLoggedIn(true)
+  }
+
+
+const getpokemons = () => {
+    fetch('http://localhost:8080/pokemons')
+      .then(response => response.json())
+      .then(data => {
+        setPokemons(data)
+        console.log(data)
+      })
+  } 
+   useEffect(() => {
+    if(!isLoggedIn){
+      redirect("/login")
+      console.log("")
+    }
+    else{
+      getpokemons()
+    }
+    
+
+  }, []) 
 
   return (
      
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home list={list}/>}/>{/* Link a La Pagina principal*/}
-      <Route path="/:id" element={<Modal/>}/>{/* */}{/* link a la carta del pokemon*/}
+      <Route path="/home" element={<Home />}/>
+      <Route path="/login" element={<Login Login={loginUser}/>}/>
+      
     </Routes>
   </BrowserRouter>
 
