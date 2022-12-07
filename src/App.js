@@ -1,6 +1,5 @@
-
 import './App.css';
-import {BrowserRouter, Routes, Route, redirect} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, redirect, useNavigate} from 'react-router-dom';
 import Home from './Componentes/home';
 import Modal from './Componentes/Modal/modal';
 import { useState, useEffect } from 'react';
@@ -29,13 +28,9 @@ function App() {
       console.log(data)
        if(data.error===null){
       logueo()
-      auth_redirect()
+      //navigate("/home")
     }
     })
-  }
-
-   function auth_redirect(){
-    window.location.replace("/home");
   }
 
   const logueo=()=>{
@@ -43,32 +38,28 @@ function App() {
   }
 
 const getpokemons = () => {
-    fetch('http://localhost:8080/pokemons')
+    fetch('http://localhost:8080/pokemones')
       .then(response => response.json())
       .then(data => {
         setPokemons(data)
-        console.log(data)
+        
       })
   } 
 
-   useEffect(() => {
-    if(isLoggedIn===false){
-      redirect("/login")
-    }
-    else{
-      getpokemons()
-    }
-    
 
+   useEffect(() => {
+    getpokemons()
+    console.log("los pokemones desde el app por el fetch son " +pokemons)
+    
   }, []) 
 
   return (
      
   <BrowserRouter>
     <Routes>
-      <Route path="/home" element={<Home />}/>
-      <Route path="/login" element={<Login Login={loginUser}/>}/>
       
+      <Route path="/home" element={<Home pokemonList={pokemons}/>}/>
+      <Route path="/login" element={<Login Login={loginUser}/>} />
     </Routes>
   </BrowserRouter>
 
@@ -76,9 +67,3 @@ const getpokemons = () => {
 }
 
 export default App;
-
-
-/* 
-filter
-Modal del pokemon
-ruteo*/

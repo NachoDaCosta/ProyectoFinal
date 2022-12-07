@@ -1,7 +1,8 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 
 export const Login=(props)=>{
-
+ const navigate = useNavigate();
     return (
         
             <div className="login">
@@ -25,10 +26,7 @@ export const Login=(props)=>{
                     </div>
 
                 
-            </div>
-        
-            
-        
+            </div>     
 
 )}
 
