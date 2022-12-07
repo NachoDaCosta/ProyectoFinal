@@ -7,22 +7,22 @@ const PokemonList=(props)=>{
     return(
         <>
             <div className="pokeList"> {/*mapeamos a los pokemones y le asignamos un indice*/}
-                {props.list.map((pokemon,index)=>{ 
+                {props.ListOfPokemons.map((pokemon,index)=>{ 
                     return (
-                        <Link to={`/${pokemon.id}`} key={pokemon.id}> 
+                        <Link to={`/${pokemon.id}`} key={props.ListOfPokemons.id}> 
                             {/*nos devuelve el pokemon de la lista de pokemones con un link que va a su id con una key asociada al id */}
-                            <div className={`Pokemon-Container ${pokemon.type}`} >
+                            <div className={`Pokemon-Container ${props.ListOfPokemons.type}`} >
                                 <div className="pokemon-number"> 
-                                    #{pokemon.id}
+                                    #{props.ListOfPokemons.id}
                                 </div>
 
                                 <div className="pokemon-image">
-                                    <img src={pokemon.image} alt=""/>
+                                    <img src={props.ListOfPokemons.image} alt=""/>
                                 </div>
 
 
                                 <div className="pokemon-name">
-                                    <span>{pokemon.name}</span>
+                                    <span>{props.ListOfPokemons.name}</span>
                                 </div>
                             </div>
                         </Link>

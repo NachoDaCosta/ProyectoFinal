@@ -7,10 +7,10 @@ import { useState, useEffect } from 'react';
 const Home = (props) => {
 
     const [orderByNumber,setOrderByNumber] = useState(true)
-    const [orderedList,setOrderedList] = useState(props.list)
+    const [orderedList,setOrderedList] = useState(props.ListOfPokemons)
 
   useEffect(()=>{
-      let auxList = props.list
+      let auxList = props.ListOfPokemons
       if(!orderByNumber){  /*Si es Distinta al orden numerico nos toma el orden Alfabetico */
         console.log("Ordeno por letra")
         auxList.sort((a,b)=>String(a.name).localeCompare(b.name))
@@ -31,13 +31,14 @@ const Home = (props) => {
 
   const [inputSearch,setInputSearch]=useState("")
   
+
     return(
         <>
         <Navbar inputSearch={inputSearch} 
           setInputSearch={setInputSearch} 
           changeOrder={changeOrder}
           orderByNumber={orderByNumber} />  {/* es el que recibe el cambio de orden de la lista */}
-        <PokemonList list={orderedList.filter((pokemon)=>pokemon.name.toLowerCase().includes(inputSearch.toLowerCase()))}/>        {/* es el que recibe la lista ordenada */}
+        <PokemonList list={orderedList.filter((pokemones)=>pokemones.name.toLowerCase().includes(inputSearch.toLowerCase()))}/>        {/* es el que recibe la lista ordenada */}
         </>
     )
 }
