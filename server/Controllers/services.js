@@ -2,18 +2,18 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/index')
 
-/*router.get('/products',(req,res) => { //busco todos los productos
-    const Products = db.Products
-    Products.findAll()
+router.get('/pokemones',(req,res) => { //busco todos los productos
+    const pokemones = db.pokemones
+    pokemones.findAll()
     .then(data => {res.send(data)})
     .catch(err => {res.status(500).send({message: err.message})})
-})*/
+})
 
 
-/*router.get('/products/:id', (req, res) => {  //busco un producto especifico por si id
+router.get('/pokemones/:id', (req, res) => {  //busco un producto especifico por si id
     let idN = req.params.id
-    const Products = db.Products
-    Products.findAll({
+    const pokemones = db.pokemones
+    pokemones.findAll({
         where:{
             id: idN
         }
@@ -23,14 +23,14 @@ const db = require('../models/index')
             res.send(data)
         }
         else{
-            res.status(404).send({message: 'Producto no disponible'})
+            res.status(404).send({message: 'Pokemon no encontrado'})
         }
       })
     .catch(err => {res.status(400).send({message: err.message})})
-})*/
+})
 
 
-/*router.post('/pokemons',(req,res)=>{  //ingreso un producto
+/*router.post('/pokemons',(req,res)=>{  //ingreso un pokemon para mi
     const Pokemons = db.Pokemons
     let produ = {
         product_name: req.body.product_name,
