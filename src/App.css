@@ -115,6 +115,10 @@
     .Pokemon-Container {
       text-decoration: none;
     }
+    .pokemon-conteiner-home{
+      display: grid;
+      grid-template-rows: 20% 80%;
+    }
      
     .Pokemon-Container>div>img{  /*Tamaño de la imagen*/
       height: 60px;
@@ -175,7 +179,7 @@
       border: 4px solid #a43e9e;
     }
 
-    .Poison>div>span {
+    .poison>div>span {
       background-color: #a43e9e;
       height: 100%;
       width: 100%;
@@ -186,7 +190,7 @@
       align-items: center;
     }
 
-    .Water{
+    .water{
       border-color: #6493eb;
       color: #6493eb;
       --bs-progress-bar-bg: #6493eb !important;
@@ -197,7 +201,7 @@
       border: 4px solid #6493eb;
     }
 
-    .Water>div>span{
+    .water>div>span{
       background-color: #6493eb;
       height: 100%;
       width: 100%;
@@ -208,7 +212,7 @@
       align-items: center;
     }
 
-    .Electric{
+    .electric{
     border-color: #f9cf30;
     color: #f9cf30;
     --bs-progress-bar-bg: #f9cf30 !important;
@@ -219,7 +223,7 @@
     border: 4px solid #f9cf30;
    }
 
-    .Electric>div>span{
+    .electric>div>span{
     background-color: #f9cf30;
     height: 100%;
     width: 100%;
@@ -230,7 +234,7 @@
     align-items: center;
     }
 
-    .Psychic{
+    .psychic{
     border-color: #fb5584;
     color: #fb5584;
     --bs-progress-bar-bg: #fb5584 !important;
@@ -241,7 +245,7 @@
       border: 4px solid #fb5584;
     }
 
-    .Psychic>div>span{
+    .psychic>div>span{
     background-color: #fb5584;
     height: 100%;
     width: 100%;
@@ -252,7 +256,7 @@
     align-items: center;
     }
 
-    .Ghost{
+    .ghost{
     border-color: #705584;
     color: #705584;
     --bs-progress-bar-bg: #705584 !important;
@@ -263,7 +267,7 @@
       border: 4px solid #705584;
     }
 
-    .Ghost>div>span{
+    .ghost>div>span{
     background-color: #705584;
     height: 100%;
     width: 100%;
@@ -274,7 +278,7 @@
     align-items: center;
     }
 
-    .Normal{
+    .normal{
       border-color: #aaa67f;
       color: #aaa67f;
       --bs-progress-bar-bg: #aaa67f !important;
@@ -285,7 +289,7 @@
       border: 4px solid #aaa67f;
     }
 
-     .Normal>div>span{
+     .normal>div>span{
       background-color: #aaa67f;
       height: 100%;
       width: 100%;
@@ -296,7 +300,7 @@
       align-items: center;
      }
 
-     .Fire{
+     .fire{
       border-color: #f57d31;
       color: #f57d31;
       --bs-progress-bar-bg: #f57d31 !important;
@@ -307,7 +311,7 @@
       border: 4px solid #f57d31;
     }
 
-     .Fire>div>span{
+     .fire>div>span{
       background-color: #f57d31;
       height: 100%;
       width: 100%;
@@ -318,7 +322,7 @@
       align-items: center;
      }
 
-     .Bug{
+     .bug{
       border-color: #a7b723;
       color: #a7b723;
       --bs-progress-bar-bg: #a7b723 !important;
@@ -329,7 +333,7 @@
       border: 4px solid #a7b723;
     }
 
-     .Bug>div>span{
+     .bug>div>span{
       background-color: #a7b723;
       height: 100%;
       width: 100%;
@@ -340,7 +344,7 @@
       align-items: center;
      }
 
-      .Flying {
+      .flying {
         border-color: #a891ec;
         color: #a891ec;
         --bs-progress-bar-bg: #a891ec !important;
@@ -351,7 +355,7 @@
         border: 4px solid #a891ec;
       }
 
-      .Flying>div>span {
+      .flying>div>span {
         background-color: #a891ec;
         height: 100%;
         width: 100%;
@@ -362,7 +366,7 @@
         align-items: center;
       }
 
-     .Steel{
+     .steel{
       border-color: #b7b9d0;
       color: #b7b9d0;
       --bs-progress-bar-bg: #b7b9d0 !important;
@@ -373,7 +377,7 @@
       border: 4px solid #b7b9d0;
      }
 
-     .Steel>div>span{
+     .steel>div>span{
       display: grid;
       background-color: #b7b9d0;
       height: 100%;

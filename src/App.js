@@ -42,27 +42,24 @@ const getpokemons = () => {
       .then(response => response.json())
       .then(data => {
         setPokemons(data)
-        console.log(data)
+        
       })
   } 
+
+
    useEffect(() => {
-    if(isLoggedIn===false){
-      redirect("/login")
-    }
-    else{
-      getpokemons()
-    }
-
-
+    getpokemons()
+    console.log("los pokemones desde el app por el fetch son " +pokemons)
+    
   }, []) 
 
   return (
 
   <BrowserRouter>
     <Routes>
-      <Route path="/home" element={<Home pokemonList={pokemons} />}/>
-      <Route path="/login" element={<Login Login={loginUser}/>}/>
-
+      
+      <Route path="/home" element={<Home pokemonList={pokemons}/>}/>
+      <Route path="/login" element={<Login Login={loginUser}/>} />
     </Routes>
   </BrowserRouter>
 

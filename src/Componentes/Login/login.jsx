@@ -1,8 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
 
 export const Login=(props)=>{
-
 
     return (
         
@@ -27,10 +25,7 @@ export const Login=(props)=>{
                     </div>
 
                 
-            </div>
-        
-            
-        
+            </div>     
 
 )}
 
