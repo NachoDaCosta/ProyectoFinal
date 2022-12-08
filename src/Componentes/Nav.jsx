@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-
+import React from "react";
 
 const Navbar =(props)=> {
+
 
     console.log(props.inputSearch)
     return(

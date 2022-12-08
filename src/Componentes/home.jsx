@@ -19,7 +19,6 @@ const Home = (props) => {
       }
       else {
         console.log("Ordeno por numero")
-         console.log("mi lista de pokemones es desde el home es "+props.pokemonList)
         auxList.sort((a,b)=>a.id - b.id)
         /*Seteo el orden por id */
       }

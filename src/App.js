@@ -1,9 +1,10 @@
 import './App.css';
 import {BrowserRouter, Routes, Route, redirect, useNavigate} from 'react-router-dom';
 import Home from './Componentes/home';
-import Modal from './Componentes/Modal/modal';
 import { useState, useEffect } from 'react';
 import { Login } from './Componentes/Login/login';
+import Carta from './Componentes/Carta/Carta';
+
 
 
 
@@ -25,7 +26,6 @@ function App() {
     .then(response => response.json())
     .then(data => {
       setUser(data)
-      console.log(data)
        if(data.error===null){
       logueo()
       //navigate("/home")
@@ -42,24 +42,22 @@ const getpokemons = () => {
       .then(response => response.json())
       .then(data => {
         setPokemons(data)
-        
       })
   } 
 
 
    useEffect(() => {
     getpokemons()
-    console.log("los pokemones desde el app por el fetch son " +pokemons)
-    
   }, []) 
 
+  
   return (
 
   <BrowserRouter>
     <Routes>
-      
       <Route path="/home" element={<Home pokemonList={pokemons}/>}/>
       <Route path="/login" element={<Login Login={loginUser}/>} />
+      <Route path="/:id" element={<Carta pokemonList={pokemons}/>} />
     </Routes>
   </BrowserRouter>
 
