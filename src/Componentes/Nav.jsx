@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 
 const Navbar =(props)=> {
 
+    console.log(props.inputSearch)
     return(
 
       

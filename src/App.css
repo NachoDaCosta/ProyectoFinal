@@ -147,7 +147,7 @@
       text-decoration: none;
     }
 
-    .Grass{
+    .grass{
       border-color: #74cb48;
       color: #74cb48;
       --bs-progress-bar-bg: #74cb48 !important;
@@ -158,7 +158,7 @@
       border: 4px solid #74cb48;
     }
 
-    .Grass>div>span {
+    .grass>div>span {
       background-color: #74cb48;
       height: 100%;
       width: 100%;

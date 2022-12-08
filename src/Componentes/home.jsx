@@ -27,7 +27,7 @@ const Home = (props) => {
       setOrderedList(auxList)  /*seteamos el orden de la lista segun el filtro */
   },[orderByNumber])
 
-  function changeOrder (){  /*Es la funcion para el boton que arrmamos arriba*/
+  function changeOrder (){  
     setOrderByNumber(!orderByNumber)
   }
   
@@ -39,13 +39,14 @@ const Home = (props) => {
         <div className="pokemon-conteiner-home">
             <Navbar inputSearch={inputSearch} 
             setInputSearch={setInputSearch} 
+            orderByNumber={orderByNumber} 
             changeOrder={changeOrder}
-            orderByNumber={orderByNumber} />  
+          />  
             <div className="pokeList">
             {
               props.pokemonList.map((item,key)=>{
                 return(
-                      <Pokemon pokemon={item} key={key} list={orderedList.filter((pokemon)=>props.pokemon.name.toLowerCase().includes(inputSearch.toLowerCase()))}/>    
+                      <Pokemon pokemon={item} key={key} list={orderedList.filter((pokemon)=>pokemon.name.toLowerCase().includes(inputSearch.toLowerCase()))}/>    
                       )
               })}
             </div>
