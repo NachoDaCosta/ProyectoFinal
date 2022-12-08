@@ -4,14 +4,13 @@ import { useParams } from "react-router-dom";
 
 const Carta=(props)=>{
     const params = useParams()
-    const auxList=(props.pokemonList.filter((pokemon)=>pokemon.id===params.id))
-    console.log("la auxlist es"+auxList)
-
-       
+    const lista=props.pokemonList
+    const filtrada=lista.filter((pokemons)=>pokemons.id===304)
+          
     return(
-        auxList.filter((item,key)=>{
+        filtrada.map((item,key)=>{
             return(
-                    <Pcard pokemon={item} key={key} />    
+                    <Pcard pokemon={item} key={key} lista={filtrada}/>    
                   )
         }
         

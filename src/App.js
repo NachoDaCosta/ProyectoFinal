@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route, redirect, useNavigate} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import Home from './Componentes/home';
 import { useState, useEffect } from 'react';
 import { Login } from './Componentes/Login/login';
@@ -10,10 +10,10 @@ import Carta from './Componentes/Carta/Carta';
 
 function App() {
 
-  //const [list, SetList] = useState(Data.pokemones);
   const [user, setUser] = useState([])
  const [isLoggedIn, setIsLoggedIn] = useState(false);
  const [pokemons,setPokemons]=useState([])
+
 
 
  const loginUser = () => {
