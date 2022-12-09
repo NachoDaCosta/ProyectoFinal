@@ -147,16 +147,19 @@
       text-decoration: none;
     }
 
+    .white-background{
+      background-color: white !important;
+    }
+
+
     .grass{
+      background-color: #74cb48;
       border-color: #74cb48;
       color: #74cb48;
       --bs-progress-bar-bg: #74cb48 !important;
     }
 
-    .grassbg {
-      background-color: #74cb48;
-      border: 4px solid #74cb48;
-    }
+    
 
     .grass>div>span {
       background-color: #74cb48;
@@ -170,14 +173,12 @@
     }
 
     .poison {
+      background-color: #a43e9e;
       border-color: #a43e9e;
       color: #a43e9e;
     }
 
-    .poisonbg {
-      background-color: #a43e9e;
-      border: 4px solid #a43e9e;
-    }
+    
 
     .poison>div>span {
       background-color: #a43e9e;
@@ -191,15 +192,12 @@
     }
 
     .water{
+      background-color: #6493eb;
       border-color: #6493eb;
       color: #6493eb;
       --bs-progress-bar-bg: #6493eb !important;
     }
 
-    .waterbg {
-      background-color: #6493eb;
-      border: 4px solid #6493eb;
-    }
 
     .water>div>span{
       background-color: #6493eb;
@@ -213,15 +211,13 @@
     }
 
     .electric{
+      background-color: #f9cf30;
     border-color: #f9cf30;
     color: #f9cf30;
     --bs-progress-bar-bg: #f9cf30 !important;
     }
 
-   .electricbg {
-    background-color: #f9cf30;
-    border: 4px solid #f9cf30;
-   }
+   
 
     .electric>div>span{
     background-color: #f9cf30;
@@ -235,15 +231,13 @@
     }
 
     .psychic{
+      background-color: #fb5584;
     border-color: #fb5584;
     color: #fb5584;
     --bs-progress-bar-bg: #fb5584 !important;
     }
 
-    .psychicbg {
-      background-color: #fb5584;
-      border: 4px solid #fb5584;
-    }
+    
 
     .psychic>div>span{
     background-color: #fb5584;
@@ -257,15 +251,12 @@
     }
 
     .ghost{
+      background-color: #705584;
     border-color: #705584;
     color: #705584;
     --bs-progress-bar-bg: #705584 !important;
     }
 
-    .ghostbg {
-      background-color: #705584;
-      border: 4px solid #705584;
-    }
 
     .ghost>div>span{
     background-color: #705584;
@@ -279,14 +270,10 @@
     }
 
     .normal{
+      background-color: #aaa67f;
       border-color: #aaa67f;
       color: #aaa67f;
       --bs-progress-bar-bg: #aaa67f !important;
-    }
-
-    .normalbg {
-      background-color: #aaa67f;
-      border: 4px solid #aaa67f;
     }
 
      .normal>div>span{
@@ -301,15 +288,11 @@
      }
 
      .fire{
+      background-color: #f57d31;
       border-color: #f57d31;
       color: #f57d31;
       --bs-progress-bar-bg: #f57d31 !important;
      }
-
-    .firebg {
-      background-color: #f57d31;
-      border: 4px solid #f57d31;
-    }
 
      .fire>div>span{
       background-color: #f57d31;
@@ -323,15 +306,12 @@
      }
 
      .bug{
+      background-color: #a7b723;
       border-color: #a7b723;
       color: #a7b723;
       --bs-progress-bar-bg: #a7b723 !important;
      }
 
-    .bugbg {
-      background-color: #a7b723;
-      border: 4px solid #a7b723;
-    }
 
      .bug>div>span{
       background-color: #a7b723;
@@ -345,15 +325,12 @@
      }
 
       .flying {
+        background-color: #a891ec;
         border-color: #a891ec;
         color: #a891ec;
         --bs-progress-bar-bg: #a891ec !important;
       }
 
-      .flyingbg {
-        background-color: #a891ec;
-        border: 4px solid #a891ec;
-      }
 
       .flying>div>span {
         background-color: #a891ec;
@@ -367,15 +344,13 @@
       }
 
      .steel{
+      background-color: #b7b9d0 ;
       border-color: #b7b9d0;
       color: #b7b9d0;
       --bs-progress-bar-bg: #b7b9d0 !important;
      }
 
-     .steelbg{
-      background-color: #b7b9d0!important ;
-      border: 4px solid #b7b9d0;
-     }
+
 
      .steel>div>span{
       display: grid;
@@ -389,15 +364,11 @@
      }
 
      .rock{
+      background-color: #b69e31 ;
       border-color: #b69e31;
       color: #b69e31;
      }
 
-    .rockbg {
-      background-color: #b69e31;
-      border: 4px solid #b69e31;
-
-    }
 
     .rock>div>span {
       display: grid;
@@ -523,23 +494,28 @@
     .modal-type {
       position: relative;
       height: 40%;
-      width: 100%;
+      width: 60%;
       color: white;
       border-radius: 15px;
       display: grid;
       bottom: -30%;
+      align-items: center;
       justify-items: center;
       font-weight: bold;
     }
 
+    .font-type{
+      font-size: 20px;
+    }
+
     .modal-types{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: row;
       height: 100%;
       width: 40%;
       gap: 20px;
       align-items: center;
-      justify-items: center;
+      justify-content:center;
     }
 
     .bolder{

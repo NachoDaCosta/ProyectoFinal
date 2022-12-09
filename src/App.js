@@ -4,7 +4,7 @@ import Home from './Componentes/home';
 import { useState, useEffect } from 'react';
 import { Login } from './Componentes/Login/login';
 import Carta from './Componentes/Carta/Carta';
-import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -13,7 +13,7 @@ function App() {
 const [user, setUser] = useState([])
  const [isLoggedIn, setIsLoggedIn] = useState(false);
  const [pokemons,setPokemons]=useState([])
- const Navigate = useNavigate()
+
 
 
 
@@ -58,7 +58,7 @@ const getpokemons = () => {
   <BrowserRouter>
     <Routes>
       <Route path="/home" element={<Home pokemonList={pokemons}/>}/>
-      <Route exact path="/" element= {isLoggedIn ? (<Login Login={loginUser} />) : ( <Navigate replace to={"/Home"}/> )} />
+      <Route exact path="/login" element= {<Login Login={loginUser}/>} />
       <Route path="/:id" element={<Carta pokemonList={pokemons}/>} />
     </Routes>
   </BrowserRouter>

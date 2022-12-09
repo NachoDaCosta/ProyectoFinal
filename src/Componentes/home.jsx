@@ -14,13 +14,10 @@ const Home = (props) => {
       if(!orderByNumber){  /*Si es Distinta al orden numerico nos toma el orden Alfabetico */
         console.log("Ordeno por letra")
         auxList.sort((a,b)=>String(a.name).localeCompare(b.name))
-       
-        /*Setea el orden por letra */
       }
       else {
         console.log("Ordeno por numero")
         auxList.sort((a,b)=>a.id - b.id)
-        /*Seteo el orden por id */
       }
       console.log(auxList)
       setOrderedList(auxList)  /*seteamos el orden de la lista segun el filtro */
@@ -41,7 +38,7 @@ const Home = (props) => {
             orderByNumber={orderByNumber} 
             changeOrder={changeOrder}
           />  
-            <div className="pokeList">
+            <div className="pokeList" orderByNumber={orderByNumber}>
             {
               props.pokemonList.map((item,key)=>{
                 return(
