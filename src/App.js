@@ -38,9 +38,11 @@ function App() {
   }
 
 const getpokemons = () => {
+  console.log("entro aca")
     fetch('http://localhost:8080/pokemones')
       .then(response => response.json())
       .then(data => {
+        console.log("es el data",data)
         setPokemons(data)
       })
   } 
@@ -50,7 +52,6 @@ const getpokemons = () => {
     getpokemons()
   }, []) 
 
-  
   return (
 
   <BrowserRouter>
