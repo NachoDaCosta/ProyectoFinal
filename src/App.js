@@ -1,18 +1,19 @@
 import './App.css';
-import {BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+import {BrowserRouter, Routes, Route, useParams, Navigate } from 'react-router-dom';
 import Home from './Componentes/home';
 import { useState, useEffect } from 'react';
 import { Login } from './Componentes/Login/login';
 import Carta from './Componentes/Carta/Carta';
-
+import { useNavigate } from "react-router-dom";
 
 
 
 function App() {
 
-  const [user, setUser] = useState([])
+const [user, setUser] = useState([])
  const [isLoggedIn, setIsLoggedIn] = useState(false);
  const [pokemons,setPokemons]=useState([])
+ const Navigate = useNavigate()
 
 
 
@@ -57,12 +58,13 @@ const getpokemons = () => {
   <BrowserRouter>
     <Routes>
       <Route path="/home" element={<Home pokemonList={pokemons}/>}/>
-      <Route path="/login" element={<Login Login={loginUser}/>} />
+      <Route exact path="/" element= {isLoggedIn ? (<Login Login={loginUser} />) : ( <Navigate replace to={"/Home"}/> )} />
       <Route path="/:id" element={<Carta pokemonList={pokemons}/>} />
     </Routes>
   </BrowserRouter>
 
   );
 }
+
 
 export default App;

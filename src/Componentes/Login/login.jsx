@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 export const Login=(props)=>{
+
+    const navigate = useNavigate();
 
     return (
         
@@ -20,7 +23,7 @@ export const Login=(props)=>{
                             
                         </div>
                         <div className="enviar">
-                            <input className='submit' type="button" value="Submit" onClick={props.Login}/>
+                            <input className='submit' type="button" value="Submit" onClick={()=>navigate("/home")}/>
                         </div>
                     </div>
 
