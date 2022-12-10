@@ -6,7 +6,25 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 const Pcard =(props)=>{   
         const pokemon=props.filtrada[0]
         
-    
+        function ceros(n){
+            if (pokemon.id<10) {
+            return("00"+pokemon.id)
+        } else if (pokemon.id>9){
+            if(pokemon.id<100){
+                return("0"+pokemon.id)
+            }
+            if(pokemon.id>99){
+                return(pokemon.id)
+            }
+            
+        }
+        }
+
+
+
+
+
+           
       
     return(
         
@@ -22,7 +40,9 @@ const Pcard =(props)=>{
                     <div>{pokemon.name}</div> {/* Nombre del Pokemon*/}
 
                     <div className="marginNumber"> {/* numero del pokemon*/}
-                        #{pokemon.id}
+                        #{ceros(pokemon.id) }
+
+                        
                     </div>
                 </div>
 
@@ -56,7 +76,7 @@ const Pcard =(props)=>{
                 </div>}
                 
   
-                <div className={`bolder ${pokemon.PrimaryType} martop`}>  
+                <div className={`bolder stats-card-background ${pokemon.PrimaryType} martop`}>  
                     About
                 </div>
 
@@ -88,10 +108,10 @@ const Pcard =(props)=>{
                 </div>
                 <div className="modal-description "> {pokemon.description}</div>{/*DIV CON DESCRIPCION DEL POKEMON */}
 
-                <div className={`bolder  ${pokemon.PrimaryType}`}>Base stats</div>{/*DIV CON TEXTO DE STATS*/}
+                <div className={`bolder stats-card-background ${pokemon.PrimaryType}`}>Base stats</div>{/*DIV CON TEXTO DE STATS*/}
                 <div className="modal-stats">
                     <div className="line2">
-                        <ul className={`about ${pokemon.PrimaryType}`}> 
+                        <ul className={`stats-card-background ${pokemon.PrimaryType}`}> 
                             <li>HP</li>
                             <li>ATK</li>
                             <li>DEF</li>

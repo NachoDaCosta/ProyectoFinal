@@ -380,6 +380,10 @@
       text-align: center;
       align-items: center;
     }
+
+
+
+
 /*----------------------------------------------------------------------*/
      .Modal-grid{
       display: grid;
@@ -672,6 +676,10 @@
   .centrar{
     display: grid;
     justify-content: center;
+  }
+
+  .stats-card-background{
+    background-color: white !important;
   }
 
 } 
