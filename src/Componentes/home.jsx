@@ -5,21 +5,22 @@ import { useState, useEffect } from 'react';
 
 
 const Home = (props) => {
-
+  const auxList=props.pokemonList
+  const auxfiltrada=auxList.sort((a,b)=>a.id - b.id)
     const [orderByNumber,setOrderByNumber] = useState(true)
-    const [orderedList,setOrderedList] = useState(props.pokemonList)
-
+    const [orderedList,setOrderedList] = useState(auxfiltrada)
+   
   useEffect(()=>{
-      let auxList = props.pokemonList
+      let auxList = auxfiltrada
       if(!orderByNumber){  /*Si es Distinta al orden numerico nos toma el orden Alfabetico */
         console.log("Ordeno por letra")
         auxList.sort((a,b)=>String(a.name).localeCompare(b.name))
       }
-      else {
+      else  if(orderByNumber){
         console.log("Ordeno por numero")
         auxList.sort((a,b)=>a.id - b.id)
       }
-      console.log(auxList)
+      console.log(auxfiltrada)
       setOrderedList(auxList)  /*seteamos el orden de la lista segun el filtro */
   },[orderByNumber])
 
@@ -38,7 +39,7 @@ const Home = (props) => {
             orderByNumber={orderByNumber} 
             changeOrder={changeOrder}
           />  
-            <div className="pokeList" orderByNumber={orderByNumber}>
+            <div className="pokeList" >
             {
               props.pokemonList.map((item,key)=>{
                 return(

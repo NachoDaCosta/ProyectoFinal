@@ -4,10 +4,9 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 const Pcard =(props)=>{   
-        const pokemon=props.filtrada[0]
-        
+        const pokemon=props.filtrada[0]  
         function ceros(n){
-            if (pokemon.id<10) {
+            if (pokemon.id<10){
             return("00"+pokemon.id)
         } else if (pokemon.id>9){
             if(pokemon.id<100){
@@ -16,15 +15,8 @@ const Pcard =(props)=>{
             if(pokemon.id>99){
                 return(pokemon.id)
             }
-            
-        }
-        }
-
-
-
-
-
-           
+        }}
+         
       
     return(
         
@@ -85,7 +77,7 @@ const Pcard =(props)=>{
                     <div className="tworows line">
                         <div className="twocols">
                             <div><img src="/Imagenes/Weight.svg" alt=""/></div>
-                            <div >{pokemon.weight}</div>    
+                            <div >{pokemon.weight} Kg</div>    
                         </div>
                         <div className="whm">Weight</div>
                     </div>
@@ -93,7 +85,7 @@ const Pcard =(props)=>{
                     <div className="tworows line">
                         <div className="twocols">
                             <div><img src="/Imagenes/height.svg" alt=""/></div>
-                            <div>{pokemon.height}</div>
+                            <div>{pokemon.height} m</div>
                         </div>
                         <div className="whm">Height</div>
                     </div>
