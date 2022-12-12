@@ -11,7 +11,7 @@ const Carta=(props)=>{
     console.log(filtrada)
 
     return(        
-        <Pcard filtrada={filtrada}/>      
+        <Pcard filtrada={filtrada} lista={lista}/>      
     )
 }
 export default Carta;

@@ -1,38 +1,52 @@
 import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { useParams } from "react-router-dom";
 
 
 const Pcard =(props)=>{   
-        const pokemon=props.filtrada[0]  
-        function ceros(n){
-            if (pokemon.id<10){
-            return("00"+pokemon.id)
-        } else if (pokemon.id>9){
-            if(pokemon.id<100){
-                return("0"+pokemon.id)
+    const params=useParams()
+        const pokemonfiltered=props.filtrada[0]
+        console.log(pokemonfiltered,"hola")
+        function ceros(n){ //nos añade ceros dependiendo el id del pokemon
+            if (pokemonfiltered.id<10){
+            return("00"+pokemonfiltered.id)
+        } else if (pokemonfiltered.id>9){
+            if(pokemonfiltered.id<100){
+                return("0"+pokemonfiltered.id)
             }
-            if(pokemon.id>99){
-                return(pokemon.id)
+            if(pokemonfiltered.id>99){
+                return(pokemonfiltered.id)
             }
         }}
+        const [pokemon,setPokemon] = useState(props.lista.find((pokemon)=>pokemon.id===params.id));
+        const [index, setIndex] = useState (props.lista.indexOf(pokemon))
+
+        useEffect(()=>{
+            setPokemon(props.lista.find((pokemon)=>pokemon.id===params.id))
+        },[params.id])
+
+        useEffect(()=>{
+            setIndex(props.lista.indexOf(pokemon))
+        },[pokemon])
+        console.log(index)
          
       
     return(
         
         <>
-        <div className={`Modal-grid ${pokemon.PrimaryType}`}> {/* Grilla General del Pokemon*/}
+        <div className={`Modal-grid ${pokemonfiltered.PrimaryType}`}> {/* Grilla General del Pokemon*/}
             <div className="modal-name"> {/*Grilla que contiene la informacion de la parte de arriba */}
                 <div className="modal-1row">
 
-                    <Link to={`/home`} key={pokemon.id}> {/* link para que retroceda al menu principal */}
+                    <Link to={`/home`} key={pokemonfiltered.id}> {/* link para que retroceda al menu principal */}
                         <img src="./Imagenes/arrow-left.svg" className="white" alt="" />
                     </Link>
 
-                    <div>{pokemon.name}</div> {/* Nombre del Pokemon*/}
+                    <div>{pokemonfiltered.name}</div> {/* Nombre del Pokemon*/}
 
                     <div className="marginNumber"> {/* numero del pokemon*/}
-                        #{ceros(pokemon.id) }
+                        #{ceros(pokemonfiltered.id) }
 
                         
                     </div>
@@ -40,35 +54,38 @@ const Pcard =(props)=>{
 
               
                 <div className="modal-2row"> {/*grilla que contiene las imagenes del pokemon y las flechas */}
+                     {
+                        index !==0 &&(
                      
-                    <Link to={`/${pokemon.id}`} className="white arrow izq" > {/*Cambio de pagina al anterior pokemon */}
+                    <Link to={`/${pokemonfiltered.id}`} className="white arrow izq" > {/*Cambio de pagina al anterior pokemon */}
                         <img src="./Imagenes/frame.svg" className="arrow-right " alt=""/>
-                    </Link>{/* si el index es distinto de 0 renderiza la flecha de la izquierda para ir hacia el pok anterio*/}
+                    </Link>)}{/* si el index es distinto de 0 renderiza la flecha de la izquierda para ir hacia el pok anterio*/}
 
                     <div className="div-poke-img img"> {/* Imagen del Pokemon  */}
-                        <img src={pokemon.image} className="modal-poke-img" alt="" />
+                        <img src={pokemonfiltered.image} className="modal-poke-img" alt="" />
                     </div>
                     
                     
-                        
-                    <Link to={`/${pokemon.id}`} className="white arrow der" > {/*Cambio de pagina al siguiente pokemon */}
+                {   
+                index <(props.lista.length-1) && (
+                    <Link to={`/${props.lista[index+1].id}`} className="white arrow der" > 
                         <img src="./Imagenes/frame.svg"  alt="" />
-                    </Link>{/* Renderiza si el indice es menor a la cantidad de pokemones */}
+                    </Link>)}{/* Renderiza si el indice es menor a la cantidad de pokemones */}
                 </div>
             </div>
             
             <div className="modal-bottom"> {/* Grilla de la parte blanca de la carta*/}
 
-            {pokemon.SecondaryType==="" ? <div className={`modal-types`}> 
-                    <span className={`modal-type ${pokemon.PrimaryType} font-type` }>{pokemon.PrimaryType}</span>
+            {pokemonfiltered.SecondaryType==="" ? <div className={`modal-types`}> 
+                    <span className={`modal-type ${pokemonfiltered.PrimaryType} font-type` }>{pokemonfiltered.PrimaryType}</span>
                 </div>:
                 <div className={`modal-types`}> 
-                    <span className={`modal-type ${pokemon.PrimaryType}`}>{pokemon.PrimaryType}</span>
-                    <span className={`modal-type ${pokemon.SecondaryType}`}>{pokemon.SecondaryType}</span>
+                    <span className={`modal-type ${pokemonfiltered.PrimaryType}`}>{pokemonfiltered.PrimaryType}</span>
+                    <span className={`modal-type ${pokemonfiltered.SecondaryType}`}>{pokemonfiltered.SecondaryType}</span>
                 </div>}
                 
   
-                <div className={`bolder stats-card-background ${pokemon.PrimaryType} martop`}>  
+                <div className={`bolder stats-card-background ${pokemonfiltered.PrimaryType} martop`}>  
                     About
                 </div>
 
@@ -77,7 +94,7 @@ const Pcard =(props)=>{
                     <div className="tworows line">
                         <div className="twocols">
                             <div><img src="/Imagenes/Weight.svg" alt=""/></div>
-                            <div >{pokemon.weight} Kg</div>    
+                            <div >{pokemonfiltered.weight} Kg</div>    
                         </div>
                         <div className="whm">Weight</div>
                     </div>
@@ -85,25 +102,25 @@ const Pcard =(props)=>{
                     <div className="tworows line">
                         <div className="twocols">
                             <div><img src="/Imagenes/height.svg" alt=""/></div>
-                            <div>{pokemon.height} m</div>
+                            <div>{pokemonfiltered.height} m</div>
                         </div>
                         <div className="whm">Height</div>
                     </div>
 
                     <div className="tworows">
                             <div >
-                                <div>{pokemon.moves1} </div>
-                                <div>{pokemon.moves2} </div>
+                                <div>{pokemonfiltered.moves1} </div>
+                                <div>{pokemonfiltered.moves2} </div>
                             </div>
                             <div className="whm moves">Moves</div>
                     </div>
                 </div>
-                <div className="modal-description "> {pokemon.description}</div>{/*DIV CON DESCRIPCION DEL POKEMON */}
+                <div className="modal-description "> {pokemonfiltered.description}</div>{/*DIV CON DESCRIPCION DEL POKEMON */}
 
-                <div className={`bolder stats-card-background ${pokemon.PrimaryType}`}>Base stats</div>{/*DIV CON TEXTO DE STATS*/}
+                <div className={`bolder stats-card-background ${pokemonfiltered.PrimaryType}`}>Base stats</div>{/*DIV CON TEXTO DE STATS*/}
                 <div className="modal-stats">
                     <div className="line2">
-                        <ul className={`stats-card-background ${pokemon.PrimaryType}`}> 
+                        <ul className={`stats-card-background ${pokemonfiltered.PrimaryType}`}> 
                             <li>HP</li>
                             <li>ATK</li>
                             <li>DEF</li>
@@ -114,21 +131,21 @@ const Pcard =(props)=>{
                     </div>
                     <div className="centrado">
                         <ul>  {/*DIV CON LA INFO DE ESTADISTICAS DEL POKEMON*/}
-                            <li>{`${pokemon.hp}`}</li>
-                            <li>{`${pokemon.atk}`}</li>
-                            <li>{`${pokemon.def}`}</li>
-                            <li>{`${pokemon.satk}`}</li>
-                            <li>{`${pokemon.sdef}`}</li>
-                            <li>{`${pokemon.spd}`}</li>
+                            <li>{`${pokemonfiltered.hp}`}</li>
+                            <li>{`${pokemonfiltered.atk}`}</li>
+                            <li>{`${pokemonfiltered.def}`}</li>
+                            <li>{`${pokemonfiltered.satk}`}</li>
+                            <li>{`${pokemonfiltered.sdef}`}</li>
+                            <li>{`${pokemonfiltered.spd}`}</li>
                         </ul>
                     </div>
                     <div className="modal-range">  {/*DIV CON LAS STATS EN BARRAS DEL POKEMON */}
-                        <ProgressBar now={pokemon.hp} className={`${pokemon.PrimaryType} progressBar`}  />
-                        <ProgressBar now={pokemon.atk} className={`${pokemon.PrimaryType} progressBar`}/>
-                        <ProgressBar now={pokemon.def} className={`${pokemon.PrimaryType} progressBar`}/>
-                        <ProgressBar now={pokemon.satk} className={`${pokemon.PrimaryType} progressBar`}/>
-                        <ProgressBar now={pokemon.sdef} className={`${pokemon.PrimaryType} progressBar`}/>
-                        <ProgressBar now={pokemon.spd} className={`${pokemon.PrimaryType} progressBar`}/>
+                        <ProgressBar now={pokemonfiltered.hp} className={`${pokemonfiltered.PrimaryType} progressBar`}  />
+                        <ProgressBar now={pokemonfiltered.atk} className={`${pokemonfiltered.PrimaryType} progressBar`}/>
+                        <ProgressBar now={pokemonfiltered.def} className={`${pokemonfiltered.PrimaryType} progressBar`}/>
+                        <ProgressBar now={pokemonfiltered.satk} className={`${pokemonfiltered.PrimaryType} progressBar`}/>
+                        <ProgressBar now={pokemonfiltered.sdef} className={`${pokemonfiltered.PrimaryType} progressBar`}/>
+                        <ProgressBar now={pokemonfiltered.spd} className={`${pokemonfiltered.PrimaryType} progressBar`}/>
                     </div>
                 </div>
             </div>
