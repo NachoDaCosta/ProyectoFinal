@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route, useParams, Navigate } from 'react-router-d
 import Home from './Componentes/home';
 import { useState, useEffect } from 'react';
 import { Login } from './Componentes/Login/login';
-import Carta from './Componentes/Carta/Carta';
+import Pcard from './Componentes/Pcard/Pcard';
 
 
 
@@ -37,7 +37,7 @@ const [user, setUser] = useState([])
   const logueo=()=>{
     setIsLoggedIn(true)
   }
-
+  console.log("este es el pokemonlist " +pokemons)
 const getpokemons = () => {
   console.log("entro aca")
     fetch('http://localhost:8080/pokemones')
@@ -48,6 +48,7 @@ const getpokemons = () => {
       })
   } 
 
+  
 
    useEffect(() => {
     getpokemons()
@@ -59,7 +60,7 @@ const getpokemons = () => {
     <Routes>
       <Route path="/home" element={<Home pokemonList={pokemons}/>}/>
       <Route exact path="/login" element= {<Login Login={loginUser}/>} />
-      <Route path="/:id" element={<Carta pokemonList={pokemons}/>} />
+      <Route path="/:id" element={<Pcard pokemonList={pokemons}/>} />
     </Routes>
   </BrowserRouter>
 

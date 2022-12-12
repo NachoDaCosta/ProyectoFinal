@@ -11,8 +11,7 @@ const Carta=(props)=>{
     console.log(filtrada)
 
     return(        
-        <Pcard filtrada={filtrada} lista={lista}/>      
+        <Pcard filtrada={filtrada} lista={lista} key={lista.id}/>      
     )
 }
 export default Carta;
-//vamos un brake hasta 21:10
