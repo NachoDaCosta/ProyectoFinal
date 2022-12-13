@@ -12,7 +12,7 @@ const Navbar =(props)=> {
             <div className="nav-first-row"> {/*Div con logo y texto*/}
                 <div className="nav-columns ">
                     <div className="centrado">
-                        <img src="./Imagenes/Pokeballblack.png" alt="" className="nav-logo"/>
+                        <img src="./Imagenes/Pokeballblack.png" alt="" className="nav-logo" onClick={console.log(props.isLoggedIn)}/>
                     </div>
 
                     <div>Pokedéx</div>

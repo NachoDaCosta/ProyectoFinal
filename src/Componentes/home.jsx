@@ -29,9 +29,6 @@ const Home = (props) => {
   },[orderByNumber,props.pokemonList])
 
 
-  function hideadd(iswriting){
-    setIswriting(!iswriting)
-  }
   function changeOrder (){  
     setOrderByNumber(!orderByNumber)
   }
@@ -45,8 +42,9 @@ const Home = (props) => {
 
     return(
   
-        <div className="pokemon-conteiner-home">
+        <div className="pokemon-conteiner-home" >
             <Navbar inputSearch={inputSearch} 
+            isLoggedIn={isLoggedIn}
             setInputSearch={setInputSearch} 
             orderByNumber={orderByNumber} 
             changeOrder={changeOrder}
