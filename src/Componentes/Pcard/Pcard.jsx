@@ -5,15 +5,22 @@ import { useParams } from "react-router-dom";
 
 
 const Pcard =(props)=>{  
-    const params=useParams()
-    //const pokemons=props.pokemonList
-    const [pokemons,setPokemons]=useState([props.pokemonList])
-    console.log(pokemons)
-    const [pokemon,setPokemon] = useState(pokemons.pokemones.find((pokemon)=>pokemon.id===params.id));
-    const [index, setIndex] = useState (pokemons.pokemones.indexOf(pokemon))
+    const {id}=useParams()
+    const [pokemon,setPokemon] = useState(props.pokemonList.find((pokemon)=>pokemon.id==id));
+    const [index, setIndex] = useState (null)
    
+        useEffect(()=>{
+            setPokemon(props.pokemonList.find((pokemon)=>pokemon.id==id))
+        },[id,props.pokemonList])
 
-        
+        useEffect(()=>{
+            if(pokemon){
+            setIndex(props.pokemonList.findIndex(candidate =>candidate.id===pokemon.id))
+
+            }
+        },[pokemon,props.pokemonList])
+
+
         function ceros(n){ //nos añade ceros dependiendo el id del pokemon
             if (pokemon.id<10){
             return("00"+pokemon.id)
@@ -25,24 +32,12 @@ const Pcard =(props)=>{
                 return(pokemon.id)
             }
         }}
-    
-
-        useEffect(()=>{
-            setPokemon(pokemons.pokemones.find((pokemon)=>pokemon.id===params.id))
-        },[params.id])
-
-        useEffect(()=>{
-            setIndex(pokemons.pokemones.indexOf(pokemon))
-        },[pokemon])
-        console.log("este es el indice " +index)
-        console.log("este es el id " +pokemon.id)
-        console.log(pokemons)
          
       
     return(
         
         <>
-        <div className={`Modal-grid ${pokemon.PrimaryType}`}> {/* Grilla General del Pokemon*/}
+        {pokemon && <div className={`Modal-grid ${pokemon.PrimaryType}`}> {/* Grilla General del Pokemon*/}
             <div className="modal-name"> {/*Grilla que contiene la informacion de la parte de arriba */}
                 <div className="modal-1row">
 
@@ -62,8 +57,8 @@ const Pcard =(props)=>{
               
                 <div className="modal-2row"> {/*grilla que contiene las imagenes del pokemon y las flechas */}
                 {
-                        index !==0 &&  (
-                    <Link to={`/${pokemons[index-1].id}`} className="white arrow izq" > {/*Cambio de pagina al anterior pokemon */}
+                    index !=null &&    index !==0 &&  (
+                    <Link to={`/${props.pokemonList[index-1].id}`} className="white arrow izq" > {/*Cambio de pagina al anterior pokemon */}
                         <img src="./Imagenes/frame.svg" className="arrow-right " alt=""/>
                     </Link>)}
 
@@ -72,8 +67,8 @@ const Pcard =(props)=>{
                     </div>
                     
                     {
-                        index <(pokemons.length-1) && (
-                    <Link to={`/${pokemons[index+1].id}`} className="white arrow der" > {/*Cambio de pagina al siguiente pokemon */}
+                    index !=null &&      index <(props.pokemonList.length-1) && (
+                    <Link to={`/${props.pokemonList[index+1].id}`} className="white arrow der" > {/*Cambio de pagina al siguiente pokemon */}
                         <img src="./Imagenes/frame.svg"  alt="" />
                     </Link>)}
 
@@ -155,7 +150,7 @@ const Pcard =(props)=>{
                     </div>
                 </div>
             </div>
-        </div>
+        </div>}
     </>
     )
 

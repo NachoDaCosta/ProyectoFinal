@@ -115,13 +115,14 @@
     .Pokemon-Container {
       text-decoration: none;
     }
+
     .pokemon-conteiner-home{
       display: grid;
       grid-template-rows: 20% 80%;
     }
      
     .Pokemon-Container>div>img{  /*Tamaño de la imagen*/
-      height: 60px;
+      height: 70px;
       width: 90px;
     }
 
@@ -134,17 +135,16 @@
       font-size: 14px;
       color: white; /*Todos los textos son blancos*/
       text-decoration: none;
+      font-weight: bold;
     }
 
-    .pokemon-image{
-      height: 100%;
-      width: 100%;
-    }
+    
 
     .pokemon-number{
       margin-left: 60%;
-      font-size: 10px;
+      font-size: 12px;
       text-decoration: none;
+      font-weight: bold;
     }
 
     .white-background{
@@ -430,14 +430,15 @@
 
     .modal-1row{ /*PRIMERA FILA DE LA PRIMERA MITAD*/
       display: grid;
-      grid-template-columns: 1fr 1fr 4fr;
+      grid-template-columns: 15% 50% 35%;
       grid-template-rows: 1fr;
+      width: 95vw;
       align-items: center;
       justify-items: center;
     }
 
     .marginNumber{
-      margin-left: 160px;
+      margin-left: 80px;
       font-size: 16px;
     }
 
