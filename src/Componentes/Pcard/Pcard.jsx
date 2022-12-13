@@ -4,15 +4,16 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import { useParams } from "react-router-dom";
 
 
-const Pcard =(props)=>{   
-
-    const pokemons=props.pokemonList
+const Pcard =(props)=>{  
     const params=useParams()
+    //const pokemons=props.pokemonList
+    const [pokemons,setPokemons]=useState([props.pokemonList])
+    console.log(pokemons)
+    const [pokemon,setPokemon] = useState(pokemons.pokemones.find((pokemon)=>pokemon.id===params.id));
+    const [index, setIndex] = useState (pokemons.pokemones.indexOf(pokemon))
+   
 
-    const [pokemon,setPokemon] = useState(pokemons.find((pokemon)=>pokemon.id===1));
-    const [index, setIndex] = useState (pokemons.indexOf(pokemon))
-
-        console.log(pokemon,"hola")
+        
         function ceros(n){ //nos añade ceros dependiendo el id del pokemon
             if (pokemon.id<10){
             return("00"+pokemon.id)
@@ -27,11 +28,11 @@ const Pcard =(props)=>{
     
 
         useEffect(()=>{
-            setPokemon(pokemons.find((pokemon)=>pokemon.id===params.id))
+            setPokemon(pokemons.pokemones.find((pokemon)=>pokemon.id===params.id))
         },[params.id])
 
         useEffect(()=>{
-            setIndex(pokemons.indexOf(pokemon))
+            setIndex(pokemons.pokemones.indexOf(pokemon))
         },[pokemon])
         console.log("este es el indice " +index)
         console.log("este es el id " +pokemon.id)

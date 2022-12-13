@@ -37,18 +37,15 @@ const [user, setUser] = useState([])
   const logueo=()=>{
     setIsLoggedIn(true)
   }
-  console.log("este es el pokemonlist " +pokemons)
+  console.log("pokemonlist " +pokemons)
 const getpokemons = () => {
-  console.log("entro aca")
     fetch('http://localhost:8080/pokemones')
       .then(response => response.json())
       .then(data => {
-        console.log("es el data",data)
+        
         setPokemons(data)
       })
   } 
-
-  
 
    useEffect(() => {
     getpokemons()
@@ -59,8 +56,9 @@ const getpokemons = () => {
   <BrowserRouter>
     <Routes>
       <Route path="/home" element={<Home pokemonList={pokemons}/>}/>
-      <Route exact path="/login" element= {<Login Login={loginUser}/>} />
-      <Route path="/:id" element={<Pcard pokemonList={pokemons}/>} />
+      <Route path="/:id" element={<Pcard pokemonList={pokemons}/>} /> {/*Pokemon individual */}
+      <Route path="/login" element= {<Login Login={loginUser}/>} />
+      
     </Routes>
   </BrowserRouter>
 

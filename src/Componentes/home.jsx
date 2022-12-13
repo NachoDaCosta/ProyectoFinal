@@ -8,6 +8,7 @@ const Home = (props) => {
     const [orderByNumber,setOrderByNumber] = useState(true)
     const [orderedList,setOrderedList] = useState(props.pokemonList)
     const auxList = props.pokemonList
+    
   useEffect(()=>{
       
       if(!orderByNumber){  /*Si es Distinta al orden numerico nos toma el orden Alfabetico */
@@ -38,10 +39,10 @@ const Home = (props) => {
           />  
             <div className="pokeList" >
             {
-              props.pokemonList.map((item,id)=>{
+              props.pokemonList.map((pokemon,index)=>{
                 return(
                   
-                      <Pokemon pokemon={item} key={id} list={orderedList.filter((pokemon)=>pokemon.name.toLowerCase().includes(inputSearch.toLowerCase()))}/>    
+                      <Pokemon pokemon={pokemon} key={pokemon.id} list={orderedList.filter((pokemon)=>pokemon.name.toLowerCase().includes(inputSearch.toLowerCase()))}/>    
                       )
               })}
             </div>
