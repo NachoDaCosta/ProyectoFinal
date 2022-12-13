@@ -87,12 +87,12 @@
 
     .pokeList{  /*Grilla con pokemones*/
       display: grid;
-      height: 50vh;
+      height: 30vh;
       width: 100vw;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 15px;
       justify-items: center;
-      align-items: center;
+      
     }
 
     .pokeList a {
@@ -103,7 +103,6 @@
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 3fr 1fr;
-      height: 100%;
       width: 100%;
       border: 2px solid;
       border-radius: 15px;
@@ -683,7 +682,7 @@
   .login{
     color: black;
     height: 100vh;
-    background-image: url(https://www.teahub.io/photos/full/341-3415520_download-pokemon-iphone-backgrounds-wallpaper-hd-cute-wallpaper.jpg//wallpapercave.com/wp/wp7416886.jpg);
+    background-image: url(https://i.pinimg.com/originals/fa/90/96/fa90961917ec843c1833dc4addf9d274.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     display: grid;
@@ -703,6 +702,12 @@
 
   .submit{
     width: 100px;
+    color: black;
+    border: 3px solid white;
+    border-radius: 30px;
+    display: grid;
+    justify-content: center;
+    background-color: white;
   }
 
   .enviar{

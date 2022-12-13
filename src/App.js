@@ -14,9 +14,6 @@ const [user, setUser] = useState([])
 const [isLoggedIn, setIsLoggedIn] = useState(false);
  const [pokemons,setPokemons]=useState([])
 
-
-
-
  const loginUser = () => {
     const requestOption = {
       method: 'POST',
@@ -30,14 +27,20 @@ const [isLoggedIn, setIsLoggedIn] = useState(false);
        if(data.error===null){
       logueo()
       //navigate("/home")
+      console.log("hice un logueo"+ logueo)
     }
     })
   }
 
   const logueo=()=>{
     setIsLoggedIn(true)
+    
   }
-  console.log("pokemonlist " +pokemons)
+  const logout=()=>{
+    setIsLoggedIn(false)
+    console.log("Cerré la sesion ")
+  }
+
 const getpokemons = () => {
     fetch('http://localhost:8080/pokemones')
       .then(response => response.json())
@@ -55,9 +58,9 @@ const getpokemons = () => {
 
   <BrowserRouter>
     <Routes>
-      <Route path="/home" element={<Home pokemonList={pokemons} isLoggedIn={isLoggedIn}/>}/>
+      <Route path="/home" element={<Home pokemonList={pokemons} isLoggedIn={isLoggedIn} logout={logout}/>}/>
       <Route path="/:id" element={<Pcard pokemonList={pokemons}/>} /> {/*Pokemon individual */}
-      <Route path="/login" element= {<Login Login={loginUser}/>} />
+      <Route path="/login" element= {<Login loginUser={loginUser}/>} />
       
     </Routes>
   </BrowserRouter>

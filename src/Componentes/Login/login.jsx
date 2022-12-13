@@ -17,15 +17,15 @@ export const Login=(props)=>{
                     <div className="datos" id="formulario">
                         <div className="formu">
                             <label  className="centrar">Ingrese su Email 📧</label>
-                            <input type="text" id="email" name="email" placeholder="Tu correo" className="input_large"/>
+                            <input type="text" id="email" name="email" placeholder="Tu correo" form='email' className="input_large"/>
                         </div>
                         <div className="formu">
                             <label  className="centrar space">Ingrese su contraseña 🔒</label>
-                            <input type="password" id="password" name="password" placeholder="Tu contraseña" className="input_large"/>
+                            <input type="password" id="password" name="password" form='password' placeholder="Tu contraseña" className="input_large"/>
                             
                         </div>
                         <div className="enviar">
-                            <input className='submit' type="button" value="Submit" onClick={props.Login}/>
+                            <input className="submit"  type="button" value="Submit" onClick={props.loginUser}/>
                         </div>
                     </div>
 

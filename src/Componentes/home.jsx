@@ -3,6 +3,7 @@ import Navbar from "./Nav"
 import Pokemon from "./Pokemon"
 import { useState, useEffect } from 'react';
 import Añadir from "./añadir/Añadir";
+import { Link } from "react-router-dom";
 
 
 const Home = (props) => {
@@ -34,7 +35,14 @@ const Home = (props) => {
   function changeOrder (){  
     setOrderByNumber(!orderByNumber)
   }
-  
+  function check(inputSearch){
+    if (inputSearch==""){
+      return(
+        <Añadir/>
+      )
+    }
+  }
+
     return(
   
         <div className="pokemon-conteiner-home">
@@ -46,7 +54,7 @@ const Home = (props) => {
             setIswriting={setIswriting}
           />  
             <div className="pokeList" >
-              {!iswriting && <Añadir/>}
+              {check(inputSearch)}
             
             {
               orderedList.filter(pokemon=> pokemon.name.toLowerCase().includes(inputSearch.toLowerCase())).map((pokemon,index)=>{
@@ -57,8 +65,11 @@ const Home = (props) => {
               })
             }
             </div>
-            <div className="div-logout">
+            
+            <div className="div-logout" onClick={props.logout}>
+              <Link to='/login' >
               <span className="logout">Cerrar session</span>
+              </Link>
             </div>
         </div>) 
 }
