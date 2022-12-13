@@ -9,33 +9,9 @@ import Pcard from './Componentes/Pcard/Pcard';
 
 
 function App() {
+  const [pokemons,setPokemons]=useState([])
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-const [user, setUser] = useState([])
-const [isLoggedIn, setIsLoggedIn] = useState(false);
- const [pokemons,setPokemons]=useState([])
-
- const loginUser = () => {
-    const requestOption = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify({ email: document.getElementById('email').value, password: document.getElementById('password').value })
-    }
-    fetch('http://localhost:8080/auth/login', requestOption)
-    .then(response => response.json())
-    .then(data => {
-      setUser(data)
-       if(data.error===null){
-      logueo()
-      //navigate("/home")
-      console.log("hice un logueo"+ logueo)
-    }
-    })
-  }
-
-  const logueo=()=>{
-    setIsLoggedIn(true)
-    
-  }
   const logout=()=>{
     setIsLoggedIn(false)
     console.log("Cerré la sesion ")
@@ -58,9 +34,18 @@ const getpokemons = () => {
 
   <BrowserRouter>
     <Routes>
-      <Route path="/home" element={<Home pokemonList={pokemons} isLoggedIn={isLoggedIn} logout={logout}/>}/>
-      <Route path="/:id" element={<Pcard pokemonList={pokemons}/>} /> {/*Pokemon individual */}
-      <Route path="/login" element= {<Login loginUser={loginUser}/>} />
+      <Route path="/home" element={<Home 
+      pokemonList={pokemons} 
+      isLoggedIn={isLoggedIn} 
+      setIsLoggedIn={setIsLoggedIn} 
+      logout={logout}/>}/>
+      
+      <Route path="/:id" element={<Pcard 
+      pokemonList={pokemons}/>} /> {/*Pokemon individual */}
+      
+      <Route path="/login" element= {<Login    
+      isLoggedIn={isLoggedIn} 
+      setIsLoggedIn={setIsLoggedIn} />} />
       
     </Routes>
   </BrowserRouter>
