@@ -90,7 +90,7 @@
       height: 50vh;
       width: 100vw;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
+      gap: 15px;
       justify-items: center;
       align-items: center;
     }
@@ -109,7 +109,44 @@
       border-radius: 15px;
       align-items: center;
       justify-items: center;
-      
+    }
+
+    .add-container {
+      background-color: rgb(81, 81, 81);
+      color: white;
+      font-weight: bolder;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      height: 120px;
+      width: 94px;
+      border: 2px solid rgb(0, 0, 0);
+      border-radius: 15px;
+      place-items: center;
+    }
+
+    .text-add{
+      text-align: center;
+    }
+
+    .div-logout{
+      display: grid;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logout{
+      color: white;
+      font-weight: bolder;
+      font-size: 15px;
+      background-color: red;
+      display: flex;
+      flex-direction:row ;
+      align-items: center;
+      justify-content: center;
+      border-radius:50px ;
+      width: 120px;
+      height: 30px;
     }
 
     .Pokemon-Container {
@@ -117,8 +154,9 @@
     }
 
     .pokemon-conteiner-home{
+      height: 100vh;
       display: grid;
-      grid-template-rows: 20% 80%;
+      grid-template-rows: 15% 75% 10%;
     }
      
     .Pokemon-Container>div>img{  /*Tamaño de la imagen*/
@@ -137,8 +175,6 @@
       text-decoration: none;
       font-weight: bold;
     }
-
-    
 
     .pokemon-number{
       margin-left: 60%;
@@ -159,7 +195,6 @@
       --bs-progress-bar-bg: #74cb48 !important;
     }
 
-    
 
     .grass>div>span {
       background-color: #74cb48;
