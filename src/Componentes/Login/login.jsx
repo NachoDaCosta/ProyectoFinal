@@ -27,21 +27,21 @@ const loginUser = () => {
         
             <div className="login">
                 <div className="centrar">
-                    <h1 className="register-text lowmr">¡Ingresa!</h1>
+                    <h1 className="register-text lowmr">¡Login!</h1>
                 </div>
                 
                     <div className="datos" id="formulario">
                         <div className="formu">
-                            <label  className="centrar">Ingrese su Email 📧</label>
-                            <input type="text" id='email' name="email" placeholder="Tu correo" form='email' className="input_large"/>
+                            <label  className="centrar">Enter your Email 📧</label>
+                            <input type="text" id='email' name="email" placeholder="Email" form='email' className="input_large"/>
                         </div>
                         <div className="formu">
-                            <label  className="centrar space">Ingrese su contraseña 🔒</label>
-                            <input type="password" id='password' name="password" form='password' placeholder="Tu contraseña" className="input_large"/>
+                            <label  className="centrar space">Enter your password 🔒</label>
+                            <input type="password" id='password' name="password" form='password' placeholder="Password" className="input_large"/>
                             
                         </div>
                         <div className="enviar">
-                            <input className="submit"  type="button" value="Submit" onClick={loginUser}/>
+                            <input className="submit"  type="button" value="Login" onClick={loginUser}/>
                         </div>
                     </div>
             </div>     

@@ -93,6 +93,7 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 15px;
       justify-items: center;
+      overflow-y: scroll;
       
     }
     .pokeList a {
@@ -135,11 +136,27 @@
     .form-inputs{
       height: 70vh;
       display: grid;
-      grid-template-rows: 15% 15% 15% 25% 15% 15%;
+      grid-template-rows: 15% 15% 25% 20% 15% 10%;
+    }
+
+    .form-4rows{
+      display: grid;
+      grid-template-rows: 25% 25% 25% 25%;
+      gap: 5px;
     }
 
     .input-name{
       width: 230px;
+      height: 25px;
+    }
+
+    .input-type{
+      width: 170px;
+      height: 25px;
+    }
+
+    #pk-ptype, #pk-stype, #pk-name, #pk-number, #pk-weight, #pk-height, #pk-move1, #pk-move2{
+      font-size: 12px;
     }
 
     .form-stats{
@@ -181,6 +198,11 @@
       grid-template-columns: 30% 70%;
     }
 
+    .form-cols-type{
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
+
     .add-container {
       background-color: white(81, 81, 81);
       color: white;
@@ -205,7 +227,9 @@
       background-color: rgb(121, 121, 121);
       text-align: center;
       border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      font-size: 12.7px;
+      font-weight: bolder;
     }
 
     .div-logout{

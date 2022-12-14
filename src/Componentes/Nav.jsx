@@ -15,7 +15,7 @@ const Navbar =(props)=> {
                         <img src="./Imagenes/Pokeballblack.png" alt="" className="nav-logo" onClick={console.log(props.isLoggedIn)}/>
                     </div>
 
-                    <div>Pokedéx</div>
+                    <div>Pokedex</div>
                     
                     
                 </div>
@@ -30,7 +30,7 @@ const Navbar =(props)=> {
             </div>
 
             <div className="nav-second-row"> {/*Div con filter */}
-            <input type="search" placeholder="Buscar" className="finder" onChange={(e)=>props.setInputSearch(e.target.value)+props.setIswriting(!props.iswriting) }/>
+            <input type="search" placeholder="Search" className="finder" onChange={(e)=>props.setInputSearch(e.target.value)+props.setIswriting(!props.iswriting) }/>
 
             </div>
         </div>

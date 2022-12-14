@@ -66,7 +66,7 @@ const Home = (props) => {
             
             <div className="div-logout" onClick={props.logout}>
               <Link to='/login' >
-              <span className="logout">Cerrar session</span>
+              <span className="logout">Logout</span>
               </Link>
             </div>
         </div>) 
