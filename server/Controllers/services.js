@@ -30,22 +30,34 @@ router.get('/pokemones/:id', (req, res) => {  //busco un producto especifico por
 })
 
 
-/*router.post('/pokemons',(req,res)=>{  //ingreso un pokemon para mi
-    const Pokemons = db.Pokemons
-    let produ = {
-        product_name: req.body.product_name,
-        category: req.body.category,
-        image: req.body.imagen,
-        price:req.body.price
+router.post('/pokemones',(req,res)=>{  //ingreso un pokemon para mi
+    const Pokemons = db.pokemones
+    let pokemon = {
+        id: req.body.id,
+        name: req.body.name,
+        PrimaryType: req.body.PrimaryType,
+        SecondaryType: req.body.SecondaryType,
+        weight: req.body.weight,
+        height: req.body.height,
+        moves1: req.body.moves1,
+        moves2: req.body.moves2,
+        description: req.body.description,
+        hp: req.body.hp,
+        atk: req.body.atk,
+        def: req.body.def,
+        satk: req.body.satk,
+        sdef: req.body.sdef,
+        spd: req.body.spd,
+        image: req.body.image
     }
-    Products.create(produ)
+    Pokemons.create(pokemon)
     .then(data => {
         res.send(data);
     })
     .catch(err => {
         res.status(500).send({message: 'Ocurrió un error, por favor intente nuevamente'})
     })
-})*/
+})
 
 
 

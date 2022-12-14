@@ -17,7 +17,7 @@ const Pokemon=(props)=>{
 
     return(
         <>
-                <Link to={`/${props.pokemon.id}`} key={props.pokemon.id}> 
+                <Link to={`/${props.pokemon.id}`} key={props.pokemon.id} className="spacing"> 
                             {/*nos devuelve el pokemon de la lista de pokemones con un link que va a su id con una key asociada al id */}
                             <div className={`Pokemon-Container  white-background ${props.pokemon.PrimaryType} `} >
                                 <div className="pokemon-number"> 

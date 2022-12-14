@@ -8,6 +8,11 @@ const Pcard =(props)=>{
     const {id}=useParams()
     const [pokemon,setPokemon] = useState(props.pokemonList.find((pokemon)=>pokemon.id==id));
     const [index, setIndex] = useState (null)
+    
+    function mayus(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+    
    
         useEffect(()=>{
             setPokemon(props.pokemonList.find((pokemon)=>pokemon.id==id))
@@ -78,11 +83,11 @@ const Pcard =(props)=>{
             <div className="modal-bottom"> {/* Grilla de la parte blanca de la carta*/}
 
             {pokemon.SecondaryType==="" ? <div className={`modal-types`}> 
-                    <span className={`modal-type ${pokemon.PrimaryType} font-type` }>{pokemon.PrimaryType}</span>
+                    <span className={`modal-type ${pokemon.PrimaryType} font-type` }>{mayus(pokemon.PrimaryType)}</span>
                 </div>:
                 <div className={`modal-types`}> 
-                    <span className={`modal-type ${pokemon.PrimaryType}`}>{pokemon.PrimaryType}</span>
-                    <span className={`modal-type ${pokemon.SecondaryType}`}>{pokemon.SecondaryType}</span>
+                    <span className={`modal-type ${pokemon.PrimaryType}`}>{mayus(pokemon.PrimaryType)}</span>
+                    <span className={`modal-type ${pokemon.SecondaryType}`}>{mayus(pokemon.SecondaryType)}</span>
                 </div>}
                 
   

@@ -6,6 +6,7 @@
     max-height: 844px;
     max-width: 390px;
     
+    
    }
 
    h1 {
@@ -87,14 +88,13 @@
 
     .pokeList{  /*Grilla con pokemones*/
       display: grid;
-      height: 30vh;
+      height: 75vh;
       width: 100vw;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 15px;
       justify-items: center;
       
     }
-
     .pokeList a {
       text-decoration: none;
     }
@@ -110,8 +110,79 @@
       justify-items: center;
     }
 
+    .formulario{
+      display: grid;
+      grid-template-rows: 10% 90%;
+      align-items: center;
+      justify-items: center;
+      height: 100vh;
+      width: 100vw;
+      font-size: 20px;
+      background-image: url("https://preview.redd.it/9n4ogs4n0q911.jpg?width=1245&format=pjpg&auto=webp&s=e8a73661d1c96147d48132948b134c174f430dd4") ;
+      background-size: contain;
+      font-weight: bold;
+    }
+
+    .form-inside{
+      height: 80vh;
+      width: 90vw;
+      background-color: rgba(89, 89, 89, 0.5);
+      color: white;
+      border-radius:20px;
+      padding: 15px;
+    }
+
+    .form-inputs{
+      height: 70vh;
+      display: grid;
+      grid-template-rows: 15% 15% 15% 25% 15% 15%;
+    }
+
+    .input-name{
+      width: 230px;
+    }
+
+    .form-stats{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .add-form-text{
+      display: grid;
+      justify-content: center;
+      font-size: 30px;
+    }
+
+  .arrow-container-form{
+    display: grid;
+    align-content: center;
+  }
+
+  .form-text-home{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  .arrow-size{
+    margin-left: 20px;
+    height: 32px;
+  }
+
+  .form-go-home{
+    width: 100vw;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+    .form-cols{
+      display: grid;
+      grid-template-columns: 30% 70%;
+    }
+
     .add-container {
-      background-color: rgb(81, 81, 81);
+      background-color: white(81, 81, 81);
       color: white;
       font-weight: bolder;
       display: grid;
@@ -119,16 +190,26 @@
       grid-template-rows: 1fr;
       height: 120px;
       width: 94px;
-      border: 2px solid rgb(0, 0, 0);
+      border: 2px solid rgb(121, 121, 121);
       border-radius: 15px;
       place-items: center;
     }
 
+  .add-image{
+    height: 70px;
+    width: 70px;
+  }
+
     .text-add{
+      width: 100%;
+      background-color: rgb(121, 121, 121);
       text-align: center;
+      border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     .div-logout{
+      background-color: rgba(255, 255, 255, 0.5);
       display: grid;
       align-items: center;
       justify-content: center;
@@ -156,6 +237,7 @@
       height: 100vh;
       display: grid;
       grid-template-rows: 15% 75% 10%;
+      overflow-y: scroll;
     }
      
     .Pokemon-Container>div>img{  /*Tamaño de la imagen*/

@@ -4,14 +4,24 @@ import { useNavigate } from 'react-router-dom';
 
 export const Login=(props)=>{
 let navigate=useNavigate()
-    function loguear(){
-        props.loginUser()
-        if (props.isLoggedIn==true){
-        navigate('/home')
-        } else{
-            console.log("no funciona el logueo")
-        }
+
+const loginUser = () => {
+    const requestOption = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({ email: document.getElementById('email').value, password: document.getElementById('password').value })
     }
+    fetch('http://localhost:8080/auth/login', requestOption)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      props.setUser(data)
+       if(data.error===null){
+      props.setIsLoggedIn(true)
+      navigate('/home')
+    }
+    })
+  }
 
     return (
         
@@ -31,7 +41,7 @@ let navigate=useNavigate()
                             
                         </div>
                         <div className="enviar">
-                            <input className="submit"  type="button" value="Submit" onClick={loguear}/>
+                            <input className="submit"  type="button" value="Submit" onClick={loginUser}/>
                         </div>
                     </div>
             </div>     

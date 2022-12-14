@@ -33,7 +33,7 @@ const Home = (props) => {
     setOrderByNumber(!orderByNumber)
   }
   function check(inputSearch){
-    if (inputSearch==""){
+    if (inputSearch=="" ){
       return(
         <Añadir/>
       )
