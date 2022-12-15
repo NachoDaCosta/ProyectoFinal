@@ -33,7 +33,7 @@ const Home = (props) => {
     setOrderByNumber(!orderByNumber)
   }
   function check(inputSearch){
-    if (inputSearch=="" ){
+    if (inputSearch=="" && isLoggedIn==true){
       return(
         <Añadir/>
       )
@@ -66,7 +66,8 @@ const Home = (props) => {
             
             <div className="div-logout" onClick={props.logout}>
               <Link to='/login' >
-              <span className="logout">Logout</span>
+              <span className="logout">{isLoggedIn ? 'Logout' : 'Ingresa'}
+</span>
               </Link>
             </div>
         </div>) 
