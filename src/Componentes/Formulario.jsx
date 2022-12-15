@@ -1,6 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
 const Formulario=()=>{
+
+    
+    let navigate=useNavigate()
+    const addpokemon = () => {
+    const requestOption = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        id: document.getElementById('pk-number').value,
+        name: document.getElementById('pk-name').value,
+        PrimaryType: document.getElementById('pk-ptype').value,
+        SecondaryType: document.getElementById('pk-stype').value,
+        weight: document.getElementById('pk-weight').value,
+        height: document.getElementById('pk-height').value,
+        moves1: document.getElementById('pk-move1').value,
+        moves2: document.getElementById('pk-move2').value,
+        description: document.getElementById('pk-description').value,
+        hp: document.getElementById('pk-hp').value,
+        atk: document.getElementById('pk-atk').value,
+        def: document.getElementById('pk-def').value,
+        satk: document.getElementById('pk-satk').value,
+        sdef: document.getElementById('pk-sdef').value,
+        spd: document.getElementById('pk-spd').value,
+        image: document.getElementById('pk-img').value
+    })
+    }
+    fetch('http://localhost:8080/pokemones', requestOption)
+    .then(response => response.json())
+    .then(data => {
+    if(data.error==null){
+        console.log("quedó")
+        navigate("/home")
+    }
+    })
+  }
+
     return(
      <div className="formulario">
         <div className="form-go-home">
@@ -15,13 +53,13 @@ const Formulario=()=>{
                 <div>
                     <div className="form-cols">
                         <div>Number:</div>
-                        <div>
+                        <div className="align-input-stats">
                              <input type="text" id='pk-number' name="pk-number" form='pk-number' placeholder="Add a pokemon number" className="input-name"/>
                         </div>
                     </div >
                     <div className="form-cols">
                         <div>Name:</div>
-                        <div>
+                        <div className="align-input-stats">
                              <input type="text" id='pk-name' name="pk-name" form='pk-name' placeholder="Add a pokemon name" className="input-name"/>
                         </div>
                     </div>
@@ -30,7 +68,7 @@ const Formulario=()=>{
                 <div>
                 <div className="form-cols-type">
                         <div>Primary Type:</div>
-                        <div>
+                        <div className="align-input-stats">
                              <input type="text" id='pk-ptype' name="pk-ptype" form='pk-ptype' placeholder="Pokemon Primary Type" className="input-type"/>
                         </div>
                     </div>
@@ -69,26 +107,72 @@ const Formulario=()=>{
                     </div >
                 </div>
 
-                <div>
-                    Description
+                <div className="form-description">
+                    <div>Description:</div>
+                    <div>
+                        <input type="text" id='pk-description' name="pk-description" 
+                        form='pk-description' placeholder="Add a pokemon description" className="input-description"/>
+                    </div>
                 </div>
                 <div className="form-stats">
                     <div>
-                        <div>Hp :</div>
-                        <div>Atk :</div>
-                        <div>Def :</div>
+                        <div className="two-rows-stats">
+                            <div>Hp:</div>
+                            <div className="align-input-stats">
+                                <input type="text" id='pk-hp' name="pk-hp" 
+                                form='pk-hp' placeholder="Set Pokemon Hp" className="input-stats"/>
+                            </div>
+                        </div>
+                        <div className="two-rows-stats">
+                            <div>Atk:</div>
+                            <div className="align-input-stats">
+                                <input type="text" id='pk-atk' name="pk-atk" 
+                                form='pk-atk' placeholder="Set Pokemon Atk" className="input-stats"/>
+                            </div>
+                        </div>
+                        <div className="two-rows-stats">
+                            <div>Def:</div>
+                            <div className="align-input-stats">
+                                <input type="text" id='pk-def' name="pk-def" 
+                                form='pk-def' placeholder="Set Pokemon Def" className="input-stats"/>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <div>Satk :</div>
-                        <div>Sdef :</div>
-                        <div>Spd :</div>
+                        <div className="two-rows-stats">
+                            <div>Satk:</div>
+                            <div className="align-input-stats">
+                                <input type="text" id='pk-satk' name="pk-satk" 
+                                form='pk-satk' placeholder="Set Pokemon Satk" className="input-stats"/>
+                            </div>
+                        </div>
+                        <div className="two-rows-stats">
+                            <div>Sdef:</div>
+                            <div className="align-input-stats">
+                                <input type="text" id='pk-sdef' name="pk-sdef" 
+                                form='pk-sdef' placeholder="Set Pokemon Sdef" className="input-stats"/>
+                            </div>
+                        </div>
+                        <div className="two-rows-stats">
+                            <div>Spd:</div>
+                            <div className="align-input-stats">
+                                <input type="text" id='pk-spd' name="pk-spd" 
+                                form='pk-spd' placeholder="Set Pokemon Spd" className="input-stats"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div>
-                     Image Url :
-                </div>
+                <div className="form-cols">
+                        <div>Image Url:</div>
+                        <div className="align-input-stats">
+                             <input type="text" id='pk-img' name="pk-img" form='pk-img' placeholder="Add a image using url" className="input-name"/>
+                        </div>
+                    </div >
             </div>
+        </div>
+        <div>
+            <span className="add-pokemon-button" onClick={addpokemon}>Add Pokemon</span>
         </div>
      </div>   
     )

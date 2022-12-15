@@ -13,6 +13,7 @@ function App() {
   const [pokemons,setPokemons]=useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState([])
+  
 
    
 
@@ -50,7 +51,9 @@ const getpokemons = () => {
       setUser={setUser} 
       isLoggedIn={isLoggedIn} 
       setIsLoggedIn={setIsLoggedIn} />} />
-       <Route path="/addpokemon" element={<Formulario/>} />
+
+
+      <Route path="/addpokemon" element={<Formulario />} />
       
     </Routes>
   </BrowserRouter>

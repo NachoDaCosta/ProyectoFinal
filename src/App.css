@@ -87,12 +87,16 @@
     }
 
     .pokeList{  /*Grilla con pokemones*/
-      display: grid;
+      display: flex;
+      flex-wrap: wrap;
       height: 75vh;
       width: 100vw;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 15px;
-      justify-items: center;
+      justify-content: space-around;
+      justify-items: start;
+      align-items: flex-start;
+      align-content: flex-start;
       overflow-y: scroll;
       
     }
@@ -113,7 +117,7 @@
 
     .formulario{
       display: grid;
-      grid-template-rows: 10% 90%;
+      grid-template-rows: 10% 80% 10%;
       align-items: center;
       justify-items: center;
       height: 100vh;
@@ -134,29 +138,58 @@
     }
 
     .form-inputs{
-      height: 70vh;
+      height: 73vh;
       display: grid;
-      grid-template-rows: 15% 15% 25% 20% 15% 10%;
+      grid-template-rows: 10% 10% 25% 20% 20% 15%;
     }
 
     .form-4rows{
       display: grid;
       grid-template-rows: 25% 25% 25% 25%;
-      gap: 5px;
+    }
+
+    .align-input-stats{
+      display: grid;
+      justify-content: center;
+    }
+
+    .form-description{
+      display: grid;
+      grid-template-rows: 30% 70%;
     }
 
     .input-name{
-      width: 230px;
+      width: 200px;
       height: 25px;
     }
 
     .input-type{
-      width: 170px;
+      width: 160px;
       height: 25px;
     }
 
-    #pk-ptype, #pk-stype, #pk-name, #pk-number, #pk-weight, #pk-height, #pk-move1, #pk-move2{
+    .input-description{
+      height: 80px;
+      width: 320px;
+    }
+
+    .input-stats{
+      width: 100px;
+      height: 25px;
+    }
+
+    #pk-img,#pk-description,#pk-ptype, #pk-stype, #pk-name,
+    #pk-number, #pk-weight, #pk-height, #pk-move1,
+    #pk-move2,#pk-hp,#pk-atk,#pk-def,#pk-satk,
+    #pk-sdef,#pk-spd{
       font-size: 12px;
+    }
+
+    .add-pokemon-button{
+      background-color: red;
+      color: white;
+      border-radius: 20px;
+      padding: 10px;
     }
 
     .form-stats{
@@ -193,29 +226,34 @@
     justify-content: flex-start;
   }
 
-    .form-cols{
-      display: grid;
-      grid-template-columns: 30% 70%;
-    }
+  .two-rows-stats{
+    display: grid;
+    grid-template-columns: 30% 70%;
+  }
 
-    .form-cols-type{
-      display: grid;
-      grid-template-columns: 50% 50%;
-    }
+  .form-cols{
+    display: grid;
+    grid-template-columns: 35% 65%;
+  }
 
-    .add-container {
-      background-color: white(81, 81, 81);
-      color: white;
-      font-weight: bolder;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-      height: 120px;
-      width: 94px;
-      border: 2px solid rgb(121, 121, 121);
-      border-radius: 15px;
-      place-items: center;
-    }
+  .form-cols-type{
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .add-container {
+    background-color: white(81, 81, 81);
+    color: white;
+    font-weight: bolder;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 120px;
+    width: 94px;
+    border: 2px solid rgb(121, 121, 121);
+    border-radius: 15px;
+    place-items: center;
+  }
 
   .add-image{
     height: 70px;
