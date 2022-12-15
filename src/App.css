@@ -202,13 +202,14 @@
       justify-content: center;
       font-size: 30px;
     }
-
+   
   .arrow-container-form{
     display: grid;
     align-content: center;
   }
 
   .form-text-home{
+    margin-left: 10px;
     color: white;
     font-weight: bold;
     font-size: 25px;
@@ -820,23 +821,29 @@
   }
 
   .register-text{
-    color: black;
+    color: white;
 
   }
   .login{
-    color: black;
+    padding: 10px;
     height: 100vh;
     background-image: url(https://i.pinimg.com/originals/fa/90/96/fa90961917ec843c1833dc4addf9d274.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    display: grid;
-    align-content: center;
-    justify-items: center;
     font-weight: bolder;
+    color: white;
+  }
+  .login-container {
+    position: relative;
+    background-color: rgba(83, 73, 38, 0.5);
+    border-radius: 15px;
+    top: 200px;
+    
   }
 
   .datos{
-    color: black;
+    color: white;
+    font-size: 20px;
     font-weight: bold;
     display: grid;grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
@@ -847,15 +854,16 @@
   .submit{
     width: 100px;
     color: black;
-    border: 3px solid white;
+    border: 3px solid rgb(49, 148, 0);
     border-radius: 30px;
     display: grid;
-    justify-content: center;
-    background-color: white;
+    justify-items: center;
+    background-color:rgb(49, 148, 0);
   }
 
   .enviar{
     display: grid;
+    align-content: center;
     justify-content: center;
   }
   .centrar{
@@ -867,6 +875,33 @@
     background-color: white !important;
   }
 
+  .img-404{
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .loading{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 75vh;
+  }
+  .loading img{
+    height: 100px;
+  }
+  
+  .black-arrow{
+    height: 40px;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .error-404{
+    display: grid;
+    grid-template-rows: 0% 95%;
+  }
 } 
 
 

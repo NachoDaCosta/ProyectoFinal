@@ -2,10 +2,13 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
-const Formulario=()=>{
-
+const Formulario=(props)=>{
+        const navigate=useNavigate()
+        
+        if (!localStorage.getItem("token")){
+        navigate("/home")
+        }
     
-    let navigate=useNavigate()
     const addpokemon = () => {
     const requestOption = {
       method: 'POST',
@@ -33,8 +36,10 @@ const Formulario=()=>{
     .then(response => response.json())
     .then(data => {
     if(data.error==null){
-        console.log("quedó")
+        props.setTime(Math.round())
+        console.log("Se añadió con exito")
         navigate("/home")
+
     }
     })
   }
@@ -45,7 +50,7 @@ const Formulario=()=>{
             <Link to={`/home`}  className="arrow-container-form"> {/* link para que retroceda al menu principal */}
                 <img src="./Imagenes/arrow-left.svg" className="white arrow-size" alt="" />    
             </Link>
-            <div className="form-text-home">Return</div>
+            <div className="form-text-home">Return Home</div>
         </div>
         <div className="form-inside">
             <div className="add-form-text">Add a Pokemon</div>

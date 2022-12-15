@@ -26,7 +26,6 @@ router.get('/pokemones/:id', (req, res) => {  //busco un producto especifico por
         }
         else{
             res.status(404).send({message: 'Pokemon no encontrado'})
-            navigate=('/error')
         }
       })
     .catch(err => {res.status(400).send({message: err.message})})

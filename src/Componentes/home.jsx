@@ -4,6 +4,7 @@ import Pokemon from "./Pokemon"
 import { useState, useEffect } from 'react';
 import Añadir from "./añadir/Añadir";
 import { Link } from "react-router-dom";
+import Cargando from "./Cargando/Cargando";
 
 
 const Home = (props) => {
@@ -11,9 +12,18 @@ const Home = (props) => {
     const [orderedList,setOrderedList] = useState(props.pokemonList)
     const [isLoggedIn, setIsLoggedIn] = useState(props.isLoggedIn);
     const [iswriting,setIswriting]=useState(false)
-    
+    const [loading,setLoading]=useState(false)
   const [inputSearch,setInputSearch]=useState("")
     
+  useEffect(()=>{
+    setLoading(true)
+    setTimeout( ()=>{
+      setLoading(false)
+      },1500)
+  },[])
+
+  
+
   useEffect(()=>{
     const auxList = props.pokemonList
     if(!orderByNumber){  /*Si es Distinta al orden numerico nos toma el orden Alfabetico */
@@ -32,6 +42,7 @@ const Home = (props) => {
   function changeOrder (){  
     setOrderByNumber(!orderByNumber)
   }
+
   function check(inputSearch){
     if (inputSearch=="" && isLoggedIn==true){
       return(
@@ -39,8 +50,11 @@ const Home = (props) => {
       )
     }
   }
+   
+  
 
     return(
+      
   
         <div className="pokemon-conteiner-home" >
             <Navbar inputSearch={inputSearch} 
@@ -50,7 +64,9 @@ const Home = (props) => {
             changeOrder={changeOrder}
             iswriting={iswriting}
             setIswriting={setIswriting}
-          />  
+          /> 
+
+          {loading ? (<Cargando />):( <div>
             <div className="pokeList" >
               {check(inputSearch)}
             
@@ -67,9 +83,11 @@ const Home = (props) => {
             <div className="div-logout" onClick={props.logout}>
               <Link to='/login' >
               <span className="logout">{isLoggedIn ? 'Logout' : 'Ingresa'}
-</span>
+              </span>
               </Link>
             </div>
+            </div>)}
+          
         </div>) 
 }
     

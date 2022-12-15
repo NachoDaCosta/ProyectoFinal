@@ -1,42 +1,50 @@
 import React, { useEffect, useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { useParams } from "react-router-dom";
 
 
 const Pcard =(props)=>{  
+    const navigate=useNavigate()
     const {id}=useParams()
     const [pokemon,setPokemon] = useState(props.pokemonList.find((pokemon)=>pokemon.id==id));
     const [index, setIndex] = useState (null)
     
     function mayus(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
-        }
-    
+    }
    
-        useEffect(()=>{
-            setPokemon(props.pokemonList.find((pokemon)=>pokemon.id==id))
-        },[id,props.pokemonList])
+    useEffect(()=>{
+        const poke=props.pokemonList.find((pokemon)=>pokemon.id==id)
+        if (poke){
+            setPokemon(poke)
+        }
+        else{
+            console.log("no se encontró")
+            navigate("/404")
+        }
+        
+    },[id,props.pokemonList])
 
-        useEffect(()=>{
-            if(pokemon){
-            setIndex(props.pokemonList.findIndex(candidate =>candidate.id===pokemon.id))
+    useEffect(()=>{
+        if(pokemon){
+        setIndex(props.pokemonList.findIndex(candidate =>candidate.id===pokemon.id))
 
-            }
-        },[pokemon,props.pokemonList])
+        }
+    },[pokemon,props.pokemonList])
 
 
-        function ceros(n){ //nos añade ceros dependiendo el id del pokemon
-            if (pokemon.id<10){
-            return("00"+pokemon.id)
-        } else if (pokemon.id>9){
-            if(pokemon.id<100){
-                return("0"+pokemon.id)
-            }
-            if(pokemon.id>99){
-                return(pokemon.id)
-            }
-        }}
+    function ceros(n){ //nos añade ceros dependiendo el id del pokemon
+        if (pokemon.id<10){
+        return("00"+pokemon.id)
+    } else if (pokemon.id>9){
+        if(pokemon.id<100){
+            return("0"+pokemon.id)
+        }
+        if(pokemon.id>99){
+            return(pokemon.id)
+        }
+    }}
          
       
     return(

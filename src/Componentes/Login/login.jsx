@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Login=(props)=>{
@@ -17,8 +16,9 @@ const loginUser = () => {
       console.log(data)
       props.setUser(data)
        if(data.error===null){
-      props.setIsLoggedIn(true)
-      navigate('/home')
+        localStorage.setItem("token", JSON.stringify(data.token));
+        props.setIsLoggedIn(true)
+        navigate('/home')
     }
     })
   }
@@ -26,22 +26,24 @@ const loginUser = () => {
     return (
         
             <div className="login">
-                <div className="centrar">
-                    <h1 className="register-text lowmr">¡Login!</h1>
-                </div>
-                
-                    <div className="datos" id="formulario">
-                        <div className="formu">
-                            <label  className="centrar">Enter your Email 📧</label>
-                            <input type="text" id='email' name="email" placeholder="Email" form='email' className="input_large"/>
-                        </div>
-                        <div className="formu">
-                            <label  className="centrar space">Enter your password 🔒</label>
-                            <input type="password" id='password' name="password" form='password' placeholder="Password" className="input_large"/>
-                            
-                        </div>
-                        <div className="enviar">
-                            <input className="submit"  type="button" value="Login" onClick={loginUser}/>
+                <div className='login-container'>
+                    <div className="centrar">
+                        <h1 className="register-text lowmr">¡Login!</h1>
+                    </div>
+                    
+                        <div className="datos" id="formulario">
+                            <div className="formu">
+                                <label  className="centrar">Enter your Email 📧</label>
+                                <input type="text" id='email' name="email" placeholder="Email" form='email' className="input_large"/>
+                            </div>
+                            <div className="formu">
+                                <label  className="centrar space">Enter your password 🔒</label>
+                                <input type="password" id='password' name="password" form='password' placeholder="Password" className="input_large"/>
+                                
+                            </div>
+                            <div className="enviar">
+                                <button className="submit" onClick={loginUser}>Ingresar</button>
+                            </div>
                         </div>
                     </div>
             </div>     
