@@ -57,7 +57,7 @@ router.post('/pokemones',(req,res)=>{  //ingreso un pokemon para mi
         res.send(data);
     })
     .catch(err => {
-        res.status(500).send({message: 'Ocurrió un error, por favor intente nuevamente'})
+        res.status(500).send({message: 'Ocurrió un error, por favor intente nuevamente' +err})
     })
 })
 
