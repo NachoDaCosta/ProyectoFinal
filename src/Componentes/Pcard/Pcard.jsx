@@ -9,6 +9,22 @@ const Pcard =(props)=>{
     const {id}=useParams()
     const [pokemon,setPokemon] = useState(props.pokemonList.find((pokemon)=>pokemon.id==id));
     const [index, setIndex] = useState (null)
+    const pertenece=props.favorite.includes(pokemon.id)
+
+    const addToFavorite = pokemon => {
+    if (!props.favorite.includes(pokemon)) props.setFavorite(props.favorite.concat(pokemon));
+    console.log(pokemon);
+    console.log(props.favorite)
+  };
+
+    const removeFavorite = pokemon => {
+    let index = props.favorite.indexOf(pokemon);
+    console.log(index);
+    let temp = [...props.favorite.slice(0, index), ...props.favorite.slice(index + 1)];
+    props.setFavorite(temp);
+  };
+
+    
     
     function mayus(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
@@ -21,7 +37,7 @@ const Pcard =(props)=>{
         }
         else{
             console.log("no se encontró")
-            navigate("/404")
+            navigate("/err-404")
         }
         
     },[id,props.pokemonList])
@@ -33,7 +49,8 @@ const Pcard =(props)=>{
         }
     },[pokemon,props.pokemonList])
 
-
+    
+    
     function ceros(n){ //nos añade ceros dependiendo el id del pokemon
         if (pokemon.id<10){
         return("00"+pokemon.id)
@@ -46,6 +63,8 @@ const Pcard =(props)=>{
         }
     }}
          
+    
+   
       
     return(
         
@@ -58,12 +77,17 @@ const Pcard =(props)=>{
                         <img src="./Imagenes/arrow-left.svg" className="white" alt="" />
                     </Link>
 
-                    <div>{pokemon.name}</div> {/* Nombre del Pokemon*/}
-
+                    <div className="pokemon-card-name">{pokemon.name}</div> {/* Nombre del Pokemon*/}
+                    {pertenece ?
+                     <div className="heart" onClick={() => removeFavorite(pokemon.id)} >
+                         <img src="/Imagenes/red-heart.png" alt="" className="fav-icon"/>
+                    </div> :
+                    <div className="heart" onClick={() => addToFavorite(pokemon.id)} >
+                        <img src="/Imagenes/black-heart.png" alt="" className="fav-icon"/>
+                    </div>
+                    }
                     <div className="marginNumber"> {/* numero del pokemon*/}
                         #{ceros(pokemon.id) }
-
-                        
                     </div>
                 </div>
 

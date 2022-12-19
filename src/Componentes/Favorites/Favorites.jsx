@@ -1,19 +1,19 @@
 import React from "react"
-import Navbar from "./Nav"
-import Pokemon from "./Pokemon"
+import Pokemon from "../Pokemon";
 import { useState, useEffect } from 'react';
-import Añadir from "./añadir/Añadir";
+import Añadir from "../añadir/Añadir";
 import { Link } from "react-router-dom";
-import Cargando from "./Cargando/Cargando";
+import Cargando from "../Cargando/Cargando";
+import Navbar from "../Nav";
 
 
-const Home = (props) => {
+const Favorites = (props) => {
+    
     const [orderByNumber,setOrderByNumber] = useState(true)
-    const [orderedList,setOrderedList] = useState(props.pokemonList)
-    const [isLoggedIn, setIsLoggedIn] = useState(props.isLoggedIn);
+    const [orderedList,setOrderedList] = useState(props.favorite)
     const [iswriting,setIswriting]=useState(false)
     const [loading,setLoading]=useState(false)
-  const [inputSearch,setInputSearch]=useState("")
+    const [inputSearch,setInputSearch]=useState("")
     
   useEffect(()=>{
     setLoading(true)
@@ -25,9 +25,10 @@ const Home = (props) => {
   
 
   useEffect(()=>{
-    const auxList = props.pokemonList
+    const auxList = props.favorite
     if(!orderByNumber){  /*Si es Distinta al orden numerico nos toma el orden Alfabetico */
         console.log("Ordeno por letra")
+        console.log(props.favorite)
         auxList.sort((a,b)=>String(a.name).localeCompare(b.name))
       }
       else  if(orderByNumber){
@@ -36,7 +37,7 @@ const Home = (props) => {
       }
       console.log(auxList)
       setOrderedList(Object.assign([],auxList))  /*seteamos el orden de la lista segun el filtro */
-  },[orderByNumber,props.pokemonList])
+  },[orderByNumber,props.favorite])
 
 
   function changeOrder (){  
@@ -44,20 +45,18 @@ const Home = (props) => {
   }
 
   function check(inputSearch){
-    if (inputSearch=="" && isLoggedIn==true){
+    if (inputSearch=="" && props.isLoggedIn==true){
       return(
         <Añadir/>
       )
     }
   }
-   
-  
 
     return(
-
+  
         <div className="pokemon-conteiner-home" >
             <Navbar inputSearch={inputSearch} 
-            isLoggedIn={isLoggedIn}
+            isLoggedIn={props.isLoggedIn}
             setInputSearch={setInputSearch} 
             orderByNumber={orderByNumber} 
             changeOrder={changeOrder}
@@ -71,22 +70,22 @@ const Home = (props) => {
                 {check(inputSearch)}
               
               {
-                orderedList.filter(pokemon=> pokemon.name.toLowerCase().includes(inputSearch.toLowerCase())).map((pokemon,index)=>{
+                props.favorite.map((pokemon,index)=>{
                   return(
                     
-                        <Pokemon pokemon={pokemon} key={pokemon.id}/>    
+                        <Pokemon pokemon={pokemon} key={pokemon.name}/>    
                         )
                 })
               }
               </div>
               
               <div className="div-logout" >
-                <Link to='/home/favorites' className="div-favorites">
+                <Link to='/favorites' className="div-favorites">
                   <img src="https://i.pinimg.com/originals/17/d0/74/17d0747c12d59dd8fd244e90d91956b9.png" alt="" className="fav-icon"/>
                   <span>Favorites</span>
                 </Link>
                 <Link to='/login' >
-                <span className="logout" onClick={props.logout}>{isLoggedIn ? 'Logout' : 'Ingresa'}
+                <span className="logout" onClick={props.logout}>{props.isLoggedIn ? 'Logout' : 'Ingresa'}
                 </span>
                 </Link>
               </div>
@@ -97,4 +96,4 @@ const Home = (props) => {
     
 
 
-export default Home;
+export default Favorites;

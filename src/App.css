@@ -1,207 +1,236 @@
  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
  @media (min-width:390px) {
-   body{
-    font-family: 'Poppins', sans-serif;
-    max-height: 844px;
-    max-width: 390px;
-    
-    
-   }
+  body{
+  font-family: 'Poppins', sans-serif;
+  max-height: 844px;
+  max-width: 390px;
+  
+  
+  }
 
-   h1 {
-     color: white;
-   }
+  h1 {
+    color: white;
+  }
 
-   .NavBar {
-     display: grid;
-     grid-template-columns: 1fr;
-     grid-template-rows: 1fr 1fr;
-     align-items: center;
-     height: 100%;
-     width: auto;
-   }
-
-   .nav-first-row {
-     display: grid;
-     grid-template-columns: 4fr 1fr;
-     grid-template-rows: 1fr;
-   }
-
-   .nav-columns{
+  .NavBar {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    font-size: 30px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     align-items: center;
-    font-weight: bold;
-   }
+    height: 100%;
+    width: auto;
+  }
+  
+  .pokedex-title {
+    text-decoration: none;
+    color: black;
 
-   .centrado{
+  }
+
+  .nav-first-row {
     display: grid;
-    justify-items: center;
-    align-items: center;
-   }
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+  }
 
-   .nav-logo{
-    height: 5vh;
-    width: 11vw;
-   }
+  .nav-columns{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  font-size: 30px;
+  align-items: center;
+  font-weight: bold;
+  }
 
-   .nav-filter{
-    height: 20px;
-    width: 6vw;
-   }
+  .centrado{
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  }
 
-   .nav-columns2{
+  .nav-logo{
+  height: 5vh;
+  width: 11vw;
+  }
+
+  .nav-filter{
+  height: 20px;
+  width: 6vw;
+  }
+
+  .nav-columns2{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  }
+
+  .hashtag{
+  font-size: 20px;
+  }
+  .nav-second-row {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    align-items: center;
-   }
+    justify-content: center;
+  }
 
-   .hashtag{
+  .finder{
+  display: grid;
+  background-image: url("../public/Imagenes/lupa.png");;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 30vw;
+  justify-items: center;
+  align-items: center;
+  }
+
+  input {
+    resize: horizontal;
+    width: 95vw;
+    height: 4vh;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align:center;
     font-size: 20px;
-   }
-   .nav-second-row {
-     display: grid;
-     justify-content: center;
-   }
+  }
 
-   .finder{
-    display: grid;
-    background-image: url("../public/Imagenes/lupa.png");;
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
-    background-position: 30vw;
+  .pokeList{  /*Grilla con pokemones*/
+    position: relative;
+    left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 75vh;
+    width: 100vw;
+    gap: 35px;
+    align-content: flex-start;
     justify-items: center;
+    justify-content: flex-start;
+    overflow-y: scroll; 
+  }
+  
+  .fav-icon{
+    height: 40px;
+    width: 40px;
+  }
+
+  .heart{
+    position: relative;
+    left: 50px;
+    display: grid;
+    justify-content: center;
+  }
+
+  
+  .spacing{
+    height: 120px;
+  }
+
+  .pokeList a {
+    text-decoration: none;
+  }
+
+  .home-second-row{
+    height: 85vh;
+    display: grid;
+    grid-template-rows: 90% 10%;
+  }
+
+  .Pokemon-Container{  /*contenedor del pokemon*/
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    width: 100%;
+    border: 2px solid;
+    border-radius: 15px;
     align-items: center;
-   }
+    justify-items: center;
+  }
 
-    input {
-      resize: horizontal;
-      width: 95vw;
-      height: 4vh;
-      border: 2px solid rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      text-align:center;
-      font-size: 20px;
-    }
+  .formulario{
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    width: 100vw;
+    font-size: 20px;
+    background-image: url("https://preview.redd.it/9n4ogs4n0q911.jpg?width=1245&format=pjpg&auto=webp&s=e8a73661d1c96147d48132948b134c174f430dd4") ;
+    background-size: contain;
+    font-weight: bold;
+  }
 
-    .pokeList{  /*Grilla con pokemones*/
-      display: flex;
-      flex-wrap: wrap;
-      height: 75vh;
-      width: 100vw;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 15px;
-      justify-content: space-around;
-      justify-items: start;
-      align-items: flex-start;
-      align-content: flex-start;
-      overflow-y: scroll;
-      
-    }
-    .pokeList a {
-      text-decoration: none;
-    }
+  .form-inside{
+    height: 80vh;
+    width: 90vw;
+    background-color: rgba(89, 89, 89, 0.5);
+    color: white;
+    border-radius:20px;
+    padding: 15px;
+  }
 
-    .Pokemon-Container{  /*contenedor del pokemon*/
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 3fr 1fr;
-      width: 100%;
-      border: 2px solid;
-      border-radius: 15px;
-      align-items: center;
-      justify-items: center;
-    }
+  .form-inputs{
+    height: 73vh;
+    display: grid;
+    grid-template-rows: 10% 10% 25% 20% 20% 15%;
+  }
 
-    .formulario{
-      display: grid;
-      grid-template-rows: 10% 80% 10%;
-      align-items: center;
-      justify-items: center;
-      height: 100vh;
-      width: 100vw;
-      font-size: 20px;
-      background-image: url("https://preview.redd.it/9n4ogs4n0q911.jpg?width=1245&format=pjpg&auto=webp&s=e8a73661d1c96147d48132948b134c174f430dd4") ;
-      background-size: contain;
-      font-weight: bold;
-    }
+  .form-4rows{
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+  }
 
-    .form-inside{
-      height: 80vh;
-      width: 90vw;
-      background-color: rgba(89, 89, 89, 0.5);
-      color: white;
-      border-radius:20px;
-      padding: 15px;
-    }
+  .align-input-stats{
+    display: grid;
+    justify-content: center;
+  }
 
-    .form-inputs{
-      height: 73vh;
-      display: grid;
-      grid-template-rows: 10% 10% 25% 20% 20% 15%;
-    }
+  .form-description{
+    display: grid;
+    grid-template-rows: 30% 70%;
+  }
 
-    .form-4rows{
-      display: grid;
-      grid-template-rows: 25% 25% 25% 25%;
-    }
+  .input-name{
+    width: 200px;
+    height: 25px;
+  }
 
-    .align-input-stats{
-      display: grid;
-      justify-content: center;
-    }
+  .input-type{
+    width: 160px;
+    height: 25px;
+  }
 
-    .form-description{
-      display: grid;
-      grid-template-rows: 30% 70%;
-    }
+  .input-description{
+    height: 80px;
+    width: 320px;
+  }
 
-    .input-name{
-      width: 200px;
-      height: 25px;
-    }
+  .input-stats{
+    width: 100px;
+    height: 25px;
+  }
 
-    .input-type{
-      width: 160px;
-      height: 25px;
-    }
+  #pk-img,#pk-description,#pk-ptype, #pk-stype, #pk-name,
+  #pk-number, #pk-weight, #pk-height, #pk-move1,
+  #pk-move2,#pk-hp,#pk-atk,#pk-def,#pk-satk,
+  #pk-sdef,#pk-spd{
+    font-size: 12px;
+  }
 
-    .input-description{
-      height: 80px;
-      width: 320px;
-    }
+  .add-pokemon-button{
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+  }
 
-    .input-stats{
-      width: 100px;
-      height: 25px;
-    }
+  .form-stats{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
-    #pk-img,#pk-description,#pk-ptype, #pk-stype, #pk-name,
-    #pk-number, #pk-weight, #pk-height, #pk-move1,
-    #pk-move2,#pk-hp,#pk-atk,#pk-def,#pk-satk,
-    #pk-sdef,#pk-spd{
-      font-size: 12px;
-    }
-
-    .add-pokemon-button{
-      background-color: red;
-      color: white;
-      border-radius: 20px;
-      padding: 10px;
-    }
-
-    .form-stats{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .add-form-text{
-      display: grid;
-      justify-content: center;
-      font-size: 30px;
-    }
+  .add-form-text{
+    display: grid;
+    justify-content: center;
+    font-size: 30px;
+  }
    
   .arrow-container-form{
     display: grid;
@@ -261,145 +290,93 @@
     width: 70px;
   }
 
-    .text-add{
-      width: 100%;
-      background-color: rgb(121, 121, 121);
-      text-align: center;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      font-size: 12.7px;
-      font-weight: bolder;
-    }
+  .text-add{
+    width: 100%;
+    background-color: rgb(121, 121, 121);
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 12.7px;
+    font-weight: bolder;
+  }
 
-    .div-logout{
-      background-color: rgba(255, 255, 255, 0.5);
-      display: grid;
-      align-items: center;
-      justify-content: center;
-    }
+  .div-logout{
+    background-color: rgba(255, 255, 255, 0.5);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .logout{
-      color: white;
-      font-weight: bolder;
-      font-size: 15px;
-      background-color: red;
-      display: flex;
-      flex-direction:row ;
-      align-items: center;
-      justify-content: center;
-      border-radius:50px ;
-      width: 120px;
-      height: 30px;
-    }
+  .logout{
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    background-color: red;
+    display: flex;
+    flex-direction:row ;
+    align-items: center;
+    justify-content: center;
+    border-radius:50px ;
+    width: 120px;
+    height: 30px;
+  }
 
-    .Pokemon-Container {
-      text-decoration: none;
-    }
+  .Pokemon-Container {
+    text-decoration: none;
+    max-height: 120px;
+      max-width: 94px;
+  }
 
-    .pokemon-conteiner-home{
-      height: 100vh;
-      display: grid;
-      grid-template-rows: 15% 75% 10%;
-      overflow-y: scroll;
-    }
-     
-    .Pokemon-Container>div>img{  /*Tamaño de la imagen*/
-      height: 70px;
-      width: 90px;
-    }
-
-    .pokemon-name{
-      display: grid;
-      justify-items: center;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      font-size: 14px;
-      color: white; /*Todos los textos son blancos*/
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .pokemon-number{
-      margin-left: 60%;
-      font-size: 12px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .white-background{
-      background-color: white !important;
-    }
-
-
-    .grass{
-      background-color: #74cb48;
-      border-color: #74cb48;
-      color: #74cb48;
-      --bs-progress-bar-bg: #74cb48 !important;
-    }
-
-
-    .grass>div>span {
-      background-color: #74cb48;
-      height: 100%;
-      width: 100%;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      text-align: center;
-      display: grid;
-      align-items: center;
-    }
-
-    .poison {
-      background-color: #a43e9e;
-      border-color: #a43e9e;
-      color: #a43e9e;
-    }
-
+  .pokemon-conteiner-home{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 15% 85% ;
+    overflow-y: scroll;
+  }
     
+  .Pokemon-Container>div>img{  /*Tamaño de la imagen*/
+    height: 70px;
+    width: 90px;
+  }
 
-    .poison>div>span {
-      background-color: #a43e9e;
-      height: 100%;
-      width: 100%;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      text-align: center;
-      display: grid;
-      align-items: center;
-    }
+  .pokemon-name{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    color: white; /*Todos los textos son blancos*/
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-    .water{
-      background-color: #6493eb;
-      border-color: #6493eb;
-      color: #6493eb;
-      --bs-progress-bar-bg: #6493eb !important;
-    }
+  .pokemon-card-name{
+    font-size: 22px;
+  }
+
+  .pokemon-number{
+    margin-left: 60%;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .white-background{
+    background-color: white !important;
+  }
 
 
-    .water>div>span{
-      background-color: #6493eb;
-      height: 100%;
-      width: 100%;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      text-align: center;
-      display: grid;
-      align-items: center;
-    }
+  .grass{
+    background-color: #74cb48;
+    border-color: #74cb48;
+    color: #74cb48;
+    --bs-progress-bar-bg: #74cb48 !important;
+  }
 
-    .electric{
-      background-color: #f9cf30;
-    border-color: #f9cf30;
-    color: #f9cf30;
-    --bs-progress-bar-bg: #f9cf30 !important;
-    }
 
-   
-
-    .electric>div>span{
-    background-color: #f9cf30;
+  .grass>div>span {
+    background-color: #74cb48;
     height: 100%;
     width: 100%;
     border-bottom-left-radius: 10px;
@@ -407,7 +384,65 @@
     text-align: center;
     display: grid;
     align-items: center;
-    }
+  }
+
+  .poison {
+    background-color: #a43e9e;
+    border-color: #a43e9e;
+    color: #a43e9e;
+  }
+
+  
+
+  .poison>div>span {
+    background-color: #a43e9e;
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    display: grid;
+    align-items: center;
+  }
+
+  .water{
+    background-color: #6493eb;
+    border-color: #6493eb;
+    color: #6493eb;
+    --bs-progress-bar-bg: #6493eb !important;
+  }
+
+
+  .water>div>span{
+    background-color: #6493eb;
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    display: grid;
+    align-items: center;
+  }
+
+  .electric{
+    background-color: #f9cf30;
+  border-color: #f9cf30;
+  color: #f9cf30;
+  --bs-progress-bar-bg: #f9cf30 !important;
+  }
+
+  
+
+  .electric>div>span{
+  background-color: #f9cf30;
+  height: 100%;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  }
 
     .psychic{
       background-color: #fb5584;
@@ -415,8 +450,6 @@
     color: #fb5584;
     --bs-progress-bar-bg: #fb5584 !important;
     }
-
-    
 
     .psychic>div>span{
     background-color: #fb5584;
@@ -503,50 +536,50 @@
       align-items: center;
      }
 
-      .flying {
-        background-color: #a891ec;
-        border-color: #a891ec;
-        color: #a891ec;
-        --bs-progress-bar-bg: #a891ec !important;
-      }
+    .flying {
+      background-color: #a891ec;
+      border-color: #a891ec;
+      color: #a891ec;
+      --bs-progress-bar-bg: #a891ec !important;
+    }
 
 
-      .flying>div>span {
-        background-color: #a891ec;
-        height: 100%;
-        width: 100%;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        text-align: center;
-        display: grid;
-        align-items: center;
-      }
-
-     .steel{
-      background-color: #b7b9d0 ;
-      border-color: #b7b9d0;
-      color: #b7b9d0;
-      --bs-progress-bar-bg: #b7b9d0 !important;
-     }
-
-
-
-     .steel>div>span{
-      display: grid;
-      background-color: #b7b9d0;
+    .flying>div>span {
+      background-color: #a891ec;
       height: 100%;
       width: 100%;
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
       text-align: center;
+      display: grid;
       align-items: center;
-     }
+    }
 
-     .rock{
-      background-color: #b69e31 ;
-      border-color: #b69e31;
-      color: #b69e31;
-     }
+    .steel{
+    background-color: #b7b9d0 ;
+    border-color: #b7b9d0;
+    color: #b7b9d0;
+    --bs-progress-bar-bg: #b7b9d0 !important;
+    }
+
+
+
+    .steel>div>span{
+    display: grid;
+    background-color: #b7b9d0;
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    align-items: center;
+    }
+
+    .rock{
+    background-color: #b69e31 ;
+    border-color: #b69e31;
+    color: #b69e31;
+    }
 
 
     .rock>div>span {
@@ -609,15 +642,15 @@
 
     .modal-1row{ /*PRIMERA FILA DE LA PRIMERA MITAD*/
       display: grid;
-      grid-template-columns: 15% 50% 35%;
+      grid-template-columns: 15% 40% 15% 30%;
       grid-template-rows: 1fr;
       width: 95vw;
       align-items: center;
-      justify-items: center;
+
     }
 
     .marginNumber{
-      margin-left: 80px;
+      margin-left: 60px;
       font-size: 16px;
     }
 
@@ -821,28 +854,30 @@
   }
 
   .register-text{
-    color: white;
+    color: rgb(7, 7, 7);
 
   }
   .login{
     padding: 10px;
     height: 100vh;
-    background-image: url(https://i.pinimg.com/originals/fa/90/96/fa90961917ec843c1833dc4addf9d274.jpg);
-    background-size: 100% 100%;
+    background-color:rgb(108, 162, 187) ;
+    background-image: url(https://media.tenor.com/hSL--HaaLEMAAAAC/hello-pikachu.gif);
+    background-size: auto;
+    background-position: bottom;
     background-repeat: no-repeat;
     font-weight: bolder;
     color: white;
   }
   .login-container {
     position: relative;
-    background-color: rgba(83, 73, 38, 0.5);
+    background-color: rgba(248, 248, 248, 0.5);
     border-radius: 15px;
-    top: 200px;
+    top: 280px;
     
   }
 
   .datos{
-    color: white;
+    color: black;
     font-size: 20px;
     font-weight: bold;
     display: grid;grid-template-rows: 1fr 1fr 1fr;
@@ -854,11 +889,12 @@
   .submit{
     width: 100px;
     color: black;
-    border: 3px solid rgb(49, 148, 0);
+    border: 3px solid rgb(255, 255, 255);
     border-radius: 30px;
     display: grid;
+    font-weight: bolder;
     justify-items: center;
-    background-color:rgb(49, 148, 0);
+    background-color:rgb(255, 255, 255);
   }
 
   .enviar{
@@ -902,6 +938,31 @@
     display: grid;
     grid-template-rows: 0% 95%;
   }
+
+  .div-logout{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-items:center;
+    align-content: center;
+  }
+  .div-logout a{
+    text-decoration: none;
+    color: black;
+  }
+
+  .div-favorites{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+  .div-favorites span{
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .div-favorites img{
+    margin-left: 20px;
+  }
+  
 } 
 
 
