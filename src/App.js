@@ -18,9 +18,6 @@ function App() {
   const [time,setTime]=useState()
   const [favorite, setFavorite] = useState([]);
 
- 
-    
-
   const logout=()=>{
     setIsLoggedIn(false)
     console.log("Cerré la sesion ")

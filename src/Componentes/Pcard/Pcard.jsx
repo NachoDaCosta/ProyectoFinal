@@ -7,30 +7,47 @@ import { useParams } from "react-router-dom";
 const Pcard =(props)=>{  
     const navigate=useNavigate()
     const {id}=useParams()
-    const [pokemon,setPokemon] = useState(props.pokemonList.find((pokemon)=>pokemon.id==id));
-    const [index, setIndex] = useState (null)
-    const pertenece=props.favorite.includes(pokemon.id)
+    const [pokemon,setPokemon] = useState(props.pokemonList.find((pokemon)=>pokemon.id==id));//muestra el pokemon q coincida con la url
+    const [index, setIndex] = useState (null)               //index para pasar de carta
+    const pertenece=props.favorite.includes(pokemon)
 
     const addToFavorite = pokemon => {
     if (!props.favorite.includes(pokemon)) props.setFavorite(props.favorite.concat(pokemon));
-    console.log(pokemon);
+    console.log(pokemon.name);
     console.log(props.favorite)
-  };
+    };
 
     const removeFavorite = pokemon => {
     let index = props.favorite.indexOf(pokemon);
     console.log(index);
     let temp = [...props.favorite.slice(0, index), ...props.favorite.slice(index + 1)];
     props.setFavorite(temp);
-  };
+    };
 
-    
-    
-    function mayus(str) {
+    function pointsname(n){  //añdade ... si el nombre del pokemon es demasiado largo
+    if(n.length>12){
+        return(n.substring(0, 10)+"...")
+    }else{
+        return(n)
+    }
+    }
+    function ceros(n){ //nos añade ceros dependiendo el id del pokemon
+            if (pokemon.id<10){
+            return("00"+pokemon.id)
+        } else if (pokemon.id>9){
+            if(pokemon.id<100){
+                return("0"+pokemon.id)
+            }
+            if(pokemon.id>99){
+                return(pokemon.id)
+            }
+    }}
+           
+    function mayus(str) {//nos añade la primer letra en mayuscula
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
    
-    useEffect(()=>{
+    useEffect(()=>{   //si no se encuentra el pokemon 404
         const poke=props.pokemonList.find((pokemon)=>pokemon.id==id)
         if (poke){
             setPokemon(poke)
@@ -51,18 +68,7 @@ const Pcard =(props)=>{
 
     
     
-    function ceros(n){ //nos añade ceros dependiendo el id del pokemon
-        if (pokemon.id<10){
-        return("00"+pokemon.id)
-    } else if (pokemon.id>9){
-        if(pokemon.id<100){
-            return("0"+pokemon.id)
-        }
-        if(pokemon.id>99){
-            return(pokemon.id)
-        }
-    }}
-         
+    
     
    
       
@@ -77,12 +83,12 @@ const Pcard =(props)=>{
                         <img src="./Imagenes/arrow-left.svg" className="white" alt="" />
                     </Link>
 
-                    <div className="pokemon-card-name">{pokemon.name}</div> {/* Nombre del Pokemon*/}
+                    <div className="pokemon-card-name">{mayus(pointsname(pokemon.name))}</div> {/* Nombre del Pokemon*/}
                     {pertenece ?
-                     <div className="heart" onClick={() => removeFavorite(pokemon.id)} >
+                     <div className="heart" onClick={() => removeFavorite(pokemon)} >
                          <img src="/Imagenes/red-heart.png" alt="" className="fav-icon"/>
                     </div> :
-                    <div className="heart" onClick={() => addToFavorite(pokemon.id)} >
+                    <div className="heart" onClick={() => addToFavorite(pokemon)} >
                         <img src="/Imagenes/black-heart.png" alt="" className="fav-icon"/>
                     </div>
                     }
@@ -94,7 +100,7 @@ const Pcard =(props)=>{
               
                 <div className="modal-2row"> {/*grilla que contiene las imagenes del pokemon y las flechas */}
                 {
-                    index !=null &&    index !==0 &&  (
+                    index !=null && index !==0 &&  (
                     <Link to={`/${props.pokemonList[index-1].id}`} className="white arrow izq" > {/*Cambio de pagina al anterior pokemon */}
                         <img src="./Imagenes/frame.svg" className="arrow-right " alt=""/>
                     </Link>)}
@@ -104,7 +110,7 @@ const Pcard =(props)=>{
                     </div>
                     
                     {
-                    index !=null &&      index <(props.pokemonList.length-1) && (
+                    index !=null && index <(props.pokemonList.length-1) && (
                     <Link to={`/${props.pokemonList[index+1].id}`} className="white arrow der" > {/*Cambio de pagina al siguiente pokemon */}
                         <img src="./Imagenes/frame.svg"  alt="" />
                     </Link>)}
@@ -147,13 +153,13 @@ const Pcard =(props)=>{
 
                     <div className="tworows">
                             <div >
-                                <div>{pokemon.moves1} </div>
-                                <div>{pokemon.moves2} </div>
+                                <div>{mayus(pokemon.moves1)} </div>
+                                <div>{mayus(pokemon.moves2)} </div>
                             </div>
                             <div className="whm moves">Moves</div>
                     </div>
                 </div>
-                <div className="modal-description "> {pokemon.description}</div>{/*DIV CON DESCRIPCION DEL POKEMON */}
+                <div className="modal-description "> {mayus(pokemon.description)}</div>{/*DIV CON DESCRIPCION DEL POKEMON */}
 
                 <div className={`bolder stats-card-background ${pokemon.PrimaryType}`}>Base stats</div>{/*DIV CON TEXTO DE STATS*/}
                 <div className="modal-stats">

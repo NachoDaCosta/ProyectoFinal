@@ -11,7 +11,6 @@ const Favorites = (props) => {
     
     const [orderByNumber,setOrderByNumber] = useState(true)
     const [orderedList,setOrderedList] = useState(props.favorite)
-    const [iswriting,setIswriting]=useState(false)
     const [loading,setLoading]=useState(false)
     const [inputSearch,setInputSearch]=useState("")
     
@@ -44,33 +43,23 @@ const Favorites = (props) => {
     setOrderByNumber(!orderByNumber)
   }
 
-  function check(inputSearch){
-    if (inputSearch=="" && props.isLoggedIn==true){
-      return(
-        <Añadir/>
-      )
-    }
-  }
-
     return(
   
         <div className="pokemon-conteiner-home" >
             <Navbar inputSearch={inputSearch} 
-            isLoggedIn={props.isLoggedIn}
             setInputSearch={setInputSearch} 
             orderByNumber={orderByNumber} 
             changeOrder={changeOrder}
-            iswriting={iswriting}
-            setIswriting={setIswriting}
+            
           /> 
 
           {loading ? (<Cargando />):(
             <div className="home-second-row">
               <div className="pokeList" >
-                {check(inputSearch)}
+                
               
               {
-                props.favorite.map((pokemon,index)=>{
+                props.favorite.filter(pokemon=> pokemon.name.toLowerCase().includes(inputSearch.toLowerCase())).map((pokemon,key)=>{
                   return(
                     
                         <Pokemon pokemon={pokemon} key={pokemon.name}/>    
@@ -80,8 +69,8 @@ const Favorites = (props) => {
               </div>
               
               <div className="div-logout" >
-                <Link to='/favorites' className="div-favorites">
-                  <img src="https://i.pinimg.com/originals/17/d0/74/17d0747c12d59dd8fd244e90d91956b9.png" alt="" className="fav-icon"/>
+                <Link to='/home/favorites' className="div-favorites">
+                  <span className="heart-favs">❤️</span>
                   <span>Favorites</span>
                 </Link>
                 <Link to='/login' >

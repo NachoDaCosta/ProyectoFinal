@@ -2,9 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar =(props)=> {
-
-
-    console.log(props.inputSearch)
+    console.log(props.inputSearch)//control de lo q se escribe
+    function checkinput(texto){
+    if (texto=="" )
+    {
+      return(
+        <img src="https://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png" alt=""  className="finder-center"/>
+      )
+    }else{
+        return(
+             <img src="https://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png" alt=""  className="finder-left"/>
+            
+        )
+    }
+  }
     return(
 
       
@@ -31,7 +42,8 @@ const Navbar =(props)=> {
             </div>
 
             <div className="nav-second-row"> {/*Div con filter */}
-            <input type="search" placeholder="Search" className="finder" onChange={(e)=>props.setInputSearch(e.target.value)+props.setIswriting(!props.iswriting) }/>
+            {checkinput(props.inputSearch)}
+            <input type="search" placeholder="Search" onChange={(e)=>props.setInputSearch(e.target.value) }/>
 
             </div>
         </div>

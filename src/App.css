@@ -72,14 +72,20 @@
     justify-content: center;
   }
 
-  .finder{
-  display: grid;
-  background-image: url("../public/Imagenes/lupa.png");;
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  background-position: 30vw;
-  justify-items: center;
-  align-items: center;
+  .finder-left{
+    position: relative;
+    top: 140%;
+    left: 10%;
+    height: 20px;
+    width: 20px;
+  }
+
+  .finder-center {
+    position: relative;
+    top: 140%;
+    left: 35%;
+    height: 20px;
+    width: 20px;
   }
 
   input {
@@ -95,6 +101,7 @@
   .pokeList{  /*Grilla con pokemones*/
     position: relative;
     left: 20px;
+    top: 2%;
     display: flex;
     flex-wrap: wrap;
     height: 75vh;
@@ -110,6 +117,18 @@
     height: 40px;
     width: 40px;
   }
+
+  .heart-favs{
+    display: grid;
+    justify-content: center;
+  }
+
+.select-type{
+  
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 9px;
+    text-align: center;
+}
 
   .heart{
     position: relative;
@@ -180,6 +199,7 @@
   .align-input-stats{
     display: grid;
     justify-content: center;
+    height: 25px;
   }
 
   .form-description{
@@ -269,6 +289,7 @@
   .form-cols-type{
     display: grid;
     grid-template-columns: 50% 50%;
+    
   }
 
   .add-container {

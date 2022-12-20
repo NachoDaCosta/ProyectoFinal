@@ -11,10 +11,10 @@ const Home = (props) => {
     const [orderByNumber,setOrderByNumber] = useState(true)
     const [orderedList,setOrderedList] = useState(props.pokemonList)
     const [isLoggedIn, setIsLoggedIn] = useState(props.isLoggedIn);
-    const [iswriting,setIswriting]=useState(false)
     const [loading,setLoading]=useState(false)
-  const [inputSearch,setInputSearch]=useState("")
+    const [inputSearch,setInputSearch]=useState("")
     
+
   useEffect(()=>{
     setLoading(true)
     setTimeout( ()=>{
@@ -43,8 +43,10 @@ const Home = (props) => {
     setOrderByNumber(!orderByNumber)
   }
 
-  function check(inputSearch){
-    if (inputSearch=="" && isLoggedIn==true){
+  function check(inputSearch)
+  {
+    if (inputSearch=="" && isLoggedIn)
+    {
       return(
         <Añadir/>
       )
@@ -61,8 +63,7 @@ const Home = (props) => {
             setInputSearch={setInputSearch} 
             orderByNumber={orderByNumber} 
             changeOrder={changeOrder}
-            iswriting={iswriting}
-            setIswriting={setIswriting}
+            
           /> 
 
           {loading ? (<Cargando />):(
@@ -73,7 +74,6 @@ const Home = (props) => {
               {
                 orderedList.filter(pokemon=> pokemon.name.toLowerCase().includes(inputSearch.toLowerCase())).map((pokemon,index)=>{
                   return(
-                    
                         <Pokemon pokemon={pokemon} key={pokemon.id}/>    
                         )
                 })
@@ -82,7 +82,7 @@ const Home = (props) => {
               
               <div className="div-logout" >
                 <Link to='/home/favorites' className="div-favorites">
-                  <img src="https://i.pinimg.com/originals/17/d0/74/17d0747c12d59dd8fd244e90d91956b9.png" alt="" className="fav-icon"/>
+                  <span className="heart-favs">❤️</span>
                   <span>Favorites</span>
                 </Link>
                 <Link to='/login' >

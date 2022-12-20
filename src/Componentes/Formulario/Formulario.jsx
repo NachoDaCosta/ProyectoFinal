@@ -39,7 +39,6 @@ const Formulario=(props)=>{
         props.setTime(Math.round())
         console.log("Se añadió con exito")
         navigate("/home")
-
     }
     })
   }
@@ -74,13 +73,42 @@ const Formulario=(props)=>{
                 <div className="form-cols-type">
                         <div>Primary Type:</div>
                         <div className="align-input-stats">
-                             <input type="text" id='pk-ptype' name="pk-ptype" form='pk-ptype' placeholder="Pokemon Primary Type" className="input-type"/>
+                             {/* <input type="text" id='pk-ptype' name="pk-ptype" form='pk-ptype' placeholder="Pokemon Primary Type" className="input-type"/>*/}
+                             <select name="select" id='pk-ptype' className="select-type">
+                                <option value="fire">Fire</option>
+                                <option value="water" >Water</option>
+                                <option value="electric">Electric</option>
+                                <option value="normal">Normal</option>
+                                <option value="water" >Water</option>
+                                <option value="ghost">Ghost</option>
+                                <option value="grass">Grass</option>
+                                <option value="bug">Bug</option>
+                                <option value="psychic">Psychic</option>
+                                <option value="steel">Steel</option>
+                                <option value="rock" >Rock</option>
+                                <option value="poison">Poison</option>
+                            </select>
                         </div>
                     </div>
                     <div className="form-cols-type">
                         <div>Secondary Type:</div>
-                        <div>
-                             <input type="text" id='pk-stype' name="pk-stype" form='pk-stype' placeholder="Pokemon Secondary Type" className="input-type"/>
+                        <div className="align-input-stats">
+                            <select name="select" id='pk-stype' className="select-type">
+                                <option value="">None</option>
+                                <option value="fire">Fire</option>
+                                <option value="water" >Water</option>
+                                <option value="electric">Electric</option>
+                                <option value="normal">Normal</option>
+                                <option value="water" >Water</option>
+                                <option value="ghost">Ghost</option>
+                                <option value="grass">Grass</option>
+                                <option value="bug">Bug</option>
+                                <option value="psychic">Psychic</option>
+                                <option value="steel">Steel</option>
+                                <option value="rock" >Rock</option>
+                                <option value="poison">Poison</option>
+                              
+                            </select>
                         </div>
                     </div>
                 </div>
