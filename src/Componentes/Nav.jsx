@@ -27,7 +27,7 @@ const Navbar =(props)=> {
                         <img src="../Imagenes/Pokeballblack.png" alt="" className="nav-logo" onClick={console.log(props.isLoggedIn)}/>
                     </div>
 
-                    <Link to='/home' className="pokedex-title">Pokedex</Link>
+                    <Link to='/' className="pokedex-title">Pokedex</Link>
                     
                     
                 </div>

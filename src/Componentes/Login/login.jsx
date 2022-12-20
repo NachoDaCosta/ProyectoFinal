@@ -18,7 +18,7 @@ const loginUser = () => {
        if(data.error===null){
         localStorage.setItem("token", JSON.stringify(data.token));
         props.setIsLoggedIn(true)
-        navigate('/home')
+        navigate('/')
     }
     })
   }

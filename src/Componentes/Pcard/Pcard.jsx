@@ -79,7 +79,7 @@ const Pcard =(props)=>{
             <div className="modal-name"> {/*Grilla que contiene la informacion de la parte de arriba */}
                 <div className="modal-1row">
 
-                    <Link to={`/home`} key={pokemon.id}> {/* link para que retroceda al menu principal */}
+                    <Link to={`/`} key={pokemon.id}> {/* link para que retroceda al menu principal */}
                         <img src="./Imagenes/arrow-left.svg" className="white" alt="" />
                     </Link>
 

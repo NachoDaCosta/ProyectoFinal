@@ -6,7 +6,7 @@ const Formulario=(props)=>{
         const navigate=useNavigate()
         
         if (!localStorage.getItem("token")){
-        navigate("/home")
+        navigate("/")
         }
     
     const addpokemon = () => {
@@ -38,7 +38,7 @@ const Formulario=(props)=>{
     if(data.error==null){
         props.setTime(Math.round())
         console.log("Se añadió con exito")
-        navigate("/home")
+        navigate("/")
     }
     })
   }
@@ -46,7 +46,7 @@ const Formulario=(props)=>{
     return(
      <div className="formulario">
         <div className="form-go-home">
-            <Link to={`/home`}  className="arrow-container-form"> {/* link para que retroceda al menu principal */}
+            <Link to={`/`}  className="arrow-container-form"> {/* link para que retroceda al menu principal */}
                 <img src="./Imagenes/arrow-left.svg" className="white arrow-size" alt="" />    
             </Link>
             <div className="form-text-home">Return Home</div>
