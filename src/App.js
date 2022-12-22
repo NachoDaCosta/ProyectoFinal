@@ -8,9 +8,6 @@ import Formulario from './Componentes/Formulario/Formulario';
 import Error404 from './Componentes/404/404';
 import Favorites from './Componentes/Favorites/Favorites';
 
-
-
-
 function App() {
   const [pokemons,setPokemons]=useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token")? true : false);
@@ -24,7 +21,7 @@ function App() {
     localStorage.removeItem("token");
   }
 
-const getpokemons = () => {
+  const getpokemons = () => {
     fetch('http://localhost:8080/pokemones')
       .then(response => response.json())
       .then(data => {
@@ -33,13 +30,16 @@ const getpokemons = () => {
       })
   } 
 
-   useEffect(() => {
-    getpokemons()
-    console.log("se está ejecutando")
-    }, [time]) 
+  useEffect(() => {
+  getpokemons()
+  console.log("se está ejecutando")
+  }, [time]) 
+
+  useEffect(() => {
+    
+    }, [time],[favorite]) 
 
   return (
-
   <BrowserRouter>
     <Routes>
       <Route exact path="/" element={<Home 
@@ -66,9 +66,6 @@ const getpokemons = () => {
                                     setIsLoggedIn={setIsLoggedIn} 
                                     logout={logout}/>} />
       <Route path="/err-404" element={<Error404/>} />
-
-
-      
     </Routes>
   </BrowserRouter>
 
